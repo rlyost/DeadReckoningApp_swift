@@ -106,7 +106,6 @@ class CompassViewController: UIViewController {
     
     // ---------------------
     
-    
     func resetCourse() {
         enableWalkButton()
     }
@@ -152,7 +151,6 @@ class CompassViewController: UIViewController {
                         self.present(alertController, animated: true, completion: self.delegate?.done)
                         self.isWalking = false
                         // reset?
-                        
                     }
                 }
             })
@@ -161,5 +159,4 @@ class CompassViewController: UIViewController {
             pedometer.stopUpdates()
         }
     }
-    
 }

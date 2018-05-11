@@ -1,1 +1,6 @@
+Uses:
+
+MapKit
+CoreMotion
+CoreLocation
 
