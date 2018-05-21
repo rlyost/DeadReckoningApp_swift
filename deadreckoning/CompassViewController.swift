@@ -29,7 +29,6 @@ class CompassViewController: UIViewController {
     var totalSteps:Double! = nil
     var totalDistance:Double! = nil
     var paceCount:Double! = nil
-    // TODO distanceLeft??
     //----
     
     let locationDelegate = LocationDelegate()
@@ -102,8 +101,9 @@ class CompassViewController: UIViewController {
         self.imageView.transform = CGAffineTransform(rotationAngle: angle)
       }
     }
+    print("PaceCount: \(self.paceCount!)")
+    walkStopButtonPress(walkStopButton)
   }
-    
     // ---------------------
     
     func resetCourse() {
@@ -135,7 +135,7 @@ class CompassViewController: UIViewController {
                     self.stepsTakenLabel.text = "\(Int(self.numberOfSteps!)) steps"
                     
                     let stepsLeft = self.totalSteps - self.numberOfSteps
-                    let distanceTraveled = (stepsLeft * 100) / self.paceCount
+                    let distanceTraveled = (stepsLeft * 100) / self.paceCount!
                     let distanceLeft = self.totalDistance - distanceTraveled
                     
                     self.stepsLeftLabel.text = "\(Int(stepsLeft)) steps"

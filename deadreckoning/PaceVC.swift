@@ -13,20 +13,15 @@ class PaceVC: UIViewController {
     
     weak var delegate:PaceItemLableDelegate?
     
-
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var stepCount: UILabel!
-    @IBOutlet weak var paceLevel: UILabel!
     @IBOutlet weak var distanceTravelled: UILabel!
-    
     
     var pedometer = CMPedometer()
     
     var numberOfSteps:Int! = nil
     var distance:Double! = nil
     var pace:Double! = nil
-    
-    
     
     var timer = Timer()
     var timerInterval = 1.0
@@ -40,11 +35,8 @@ class PaceVC: UIViewController {
             if let pedData = data{
                 self.numberOfSteps = Int(truncating: data!.numberOfSteps)
                 
-                
-                
                 if let distance = pedData.distance{
                     self.distance = Double(truncating: distance)
-                    
                 }
                 if #available(iOS 9.0, *) {
                     if let currentPace = pedData.currentPace{
@@ -57,8 +49,6 @@ class PaceVC: UIViewController {
             else {
                 self.numberOfSteps = nil
             }
-            
-            
         })
     }
     
@@ -70,8 +60,7 @@ class PaceVC: UIViewController {
     
     @IBAction func submitPress(_ sender: UIButton) {
         let num = (Double(numberOfSteps) / distance) * 100.0
-        delegate?.itemPrint(by: self, with:String( num) )
-        //PASS IN RIGHT PACE COUNT    TODO
+        delegate?.itemPrint(by: self, with:String(Int(num)) )
     }
     
     func displayData(){
@@ -89,14 +78,6 @@ class PaceVC: UIViewController {
         else{
             distanceTravelled.text = "Distance: N/A"
         }
-        
-//        if let pace = self.pace {
-//            print(pace)
-//            paceLevel.text = paceString(title: " ", pace: pace)
-//        }
-//        else {
-//            paceLevel.text = "Pace: N/A"
-//        }
     }
     
     func paceString(title:String,pace:Double) -> String{

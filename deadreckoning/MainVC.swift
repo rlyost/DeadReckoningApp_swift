@@ -42,9 +42,9 @@ class MainVC: UIViewController {
     @IBAction func startButton(_ sender: UIButton) {
         let pc = paceCountField.text!
         let dist = distanceField.text!
-        let direction = directionField.text!
+        let azimuth: String = directionField.text!
         
-        if !pc.isEmpty && !dist.isEmpty && !direction.isEmpty {
+        if !pc.isEmpty && !dist.isEmpty && !azimuth.isEmpty {
             performSegue(withIdentifier: "toCompassSegue", sender: self)
         } else {
             let alertController = UIAlertController(title: "Error", message: "You must set all attributes first.", preferredStyle: .alert)
@@ -62,10 +62,22 @@ class MainVC: UIViewController {
             let navigationController = segue.destination as! UINavigationController
             let controller = navigationController.topViewController as! MapViewController
             controller.delegate = self
+            controller.myLocation = latestLocation
         } else if segue.identifier == "toCompassSegue" {
             let compassVC = segue.destination as! CompassViewController
             compassVC.totalDistance = Double(distanceField.text!)
             compassVC.paceCount = Double(paceCountField.text!)
+            let newDir = CGFloat(Double(self.directionField.text!)!)
+            print(newDir)
+//            yourLocationBearing;: CGFLoat {
+//                set {
+//                    if newDir > 180 {
+//                        self.yourLocationBearing = newDir-360
+//                    } else {
+//                        self.yourLocationBearing = newDir
+//                    }
+//                }
+//            }
             compassVC.delegate = self
         }
     }
@@ -88,8 +100,12 @@ extension MainVC: MapViewControllerDelegate {
     func update(location: CLLocation) {
         yourLocation = location
         print("Your Location \(yourLocation)")
-        print("Your Location Bearing \(-Int(yourLocationBearing))")
-        directionField.text = String(Int(yourLocationBearing))
+        print("Your Location Bearing \(yourLocationBearing)")
+        if(Int(yourLocationBearing) < 0) {
+            directionField.text = String(Int(yourLocationBearing)+360)
+        } else {
+            directionField.text = String(Int(yourLocationBearing))
+        }
         print("Distance: \(distance)")
         distanceField.text = String(Int(distance))
     }
@@ -102,9 +118,11 @@ extension MainVC: PaceItemLableDelegate {
     }
 }
 
+// DELEGATE PROTOCOL
 protocol CompassVCDelegate: class {
     func done()
 }
+//*******************
 
 extension MainVC: CompassVCDelegate {
     func done() {

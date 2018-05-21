@@ -25,7 +25,7 @@
 /* Begin PBXFileReference section */
 		647284241EB38CE9002474A2 /* UserDefauts+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserDefauts+Extensions.swift"; sourceTree = "<group>"; };
 		64BE1FD71EAC8E23009A00B6 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
-		64E8BF681E9535A200B10108 /* compass.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = compass.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		64E8BF681E9535A200B10108 /* deadreckoning.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = deadreckoning.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		64E8BF6B1E9535A200B10108 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		64E8BF6D1E9535A200B10108 /* CompassViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompassViewController.swift; sourceTree = "<group>"; };
 		64E8BF721E9535A200B10108 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -62,7 +62,7 @@
 		64E8BF691E9535A200B10108 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				64E8BF681E9535A200B10108 /* compass.app */,
+				64E8BF681E9535A200B10108 /* deadreckoning.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -91,9 +91,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		64E8BF671E9535A200B10108 /* compass */ = {
+		64E8BF671E9535A200B10108 /* deadreckoning */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 64E8BF7A1E9535A200B10108 /* Build configuration list for PBXNativeTarget "compass" */;
+			buildConfigurationList = 64E8BF7A1E9535A200B10108 /* Build configuration list for PBXNativeTarget "deadreckoning" */;
 			buildPhases = (
 				64E8BF641E9535A200B10108 /* Sources */,
 				64E8BF651E9535A200B10108 /* Frameworks */,
@@ -103,9 +103,9 @@
 			);
 			dependencies = (
 			);
-			name = compass;
+			name = deadreckoning;
 			productName = compass;
-			productReference = 64E8BF681E9535A200B10108 /* compass.app */;
+			productReference = 64E8BF681E9535A200B10108 /* deadreckoning.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -116,7 +116,7 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
 				LastUpgradeCheck = 0930;
-				ORGANIZATIONNAME = "Kimchi Media";
+				ORGANIZATIONNAME = "Echelon Front";
 				TargetAttributes = {
 					64E8BF671E9535A200B10108 = {
 						CreatedOnToolsVersion = 8.3;
@@ -139,7 +139,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				64E8BF671E9535A200B10108 /* compass */,
+				64E8BF671E9535A200B10108 /* deadreckoning */,
 			);
 		};
 /* End PBXProject section */
@@ -344,7 +344,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		64E8BF7A1E9535A200B10108 /* Build configuration list for PBXNativeTarget "compass" */ = {
+		64E8BF7A1E9535A200B10108 /* Build configuration list for PBXNativeTarget "deadreckoning" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				64E8BF7B1E9535A200B10108 /* Debug */,
