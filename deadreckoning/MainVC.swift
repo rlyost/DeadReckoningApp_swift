@@ -19,6 +19,8 @@ class MainVC: UIViewController {
         get { return UserDefaults.standard.currentLocation }
         set { UserDefaults.standard.currentLocation = newValue }
     }
+    var map: Bool = false
+    var newDir: CGFloat?
     
     let locationManager: CLLocationManager = {
         $0.requestWhenInUseAuthorization()
@@ -67,17 +69,10 @@ class MainVC: UIViewController {
             let compassVC = segue.destination as! CompassViewController
             compassVC.totalDistance = Double(distanceField.text!)
             compassVC.paceCount = Double(paceCountField.text!)
+            compassVC.map = map
             let newDir = CGFloat(Double(self.directionField.text!)!)
             print(newDir)
-//            yourLocationBearing;: CGFLoat {
-//                set {
-//                    if newDir > 180 {
-//                        self.yourLocationBearing = newDir-360
-//                    } else {
-//                        self.yourLocationBearing = newDir
-//                    }
-//                }
-//            }
+            compassVC.newDir = newDir
             compassVC.delegate = self
         }
     }
@@ -94,13 +89,19 @@ class MainVC: UIViewController {
         locationDelegate.locationCallback = { location in self.latestLocation = location }
         view.addGestureRecognizer(UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing(_:))))
     }
+    func viewDidAppear() {
+        map = false
+    }
 }
+
 
 extension MainVC: MapViewControllerDelegate {
     func update(location: CLLocation) {
+        map = true
         yourLocation = location
         print("Your Location \(yourLocation)")
         print("Your Location Bearing \(yourLocationBearing)")
+        self.newDir = yourLocationBearing
         if(Int(yourLocationBearing) < 0) {
             directionField.text = String(Int(yourLocationBearing)+360)
         } else {

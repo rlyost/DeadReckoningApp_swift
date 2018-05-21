@@ -79,7 +79,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ptU-g6-HLJ">
                                 <rect key="frame" x="88" y="648" width="200" height="62"/>
-                                <color key="backgroundColor" red="0.0" green="0.56031829119999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.0" green="0.56284224989999998" blue="0.31881666180000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Submit">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
@@ -267,7 +267,7 @@ Dead reckoning is moving a set distance along a set line. Generally, it involves
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VJc-aR-vUF">
                                 <rect key="frame" x="116" y="689" width="142" height="52"/>
-                                <color key="backgroundColor" red="0.0" green="0.56031829119999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.17078818230000001" green="0.42429409899999998" blue="0.093925939959999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="52" id="jrt-wv-JMB"/>
                                     <constraint firstAttribute="width" constant="142" id="kfu-QH-sSF"/>
@@ -393,7 +393,7 @@ Dead reckoning is moving a set distance along a set line. Generally, it involves
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e9B-g6-kLk">
                                 <rect key="frame" x="112.66666666666669" y="710" width="150" height="60"/>
-                                <color key="backgroundColor" red="0.0" green="0.56284224989999998" blue="0.31881666180000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.17078818230000001" green="0.42429409899999998" blue="0.093925939959999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="Oqz-sv-bNF"/>
                                     <constraint firstAttribute="width" constant="150" id="jpc-qA-okv"/>

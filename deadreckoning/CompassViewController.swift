@@ -29,6 +29,8 @@ class CompassViewController: UIViewController {
     var totalSteps:Double! = nil
     var totalDistance:Double! = nil
     var paceCount:Double! = nil
+    var map: Bool! = nil
+    var newDir: CGFloat! = nil
     //----
     
     let locationDelegate = LocationDelegate()
@@ -74,6 +76,15 @@ class CompassViewController: UIViewController {
     totalSteps = (paceCount * totalDistance) / 100.0
     totalStepsLabel.text = String(Int(totalSteps)) + " steps"
     
+    print(map)
+//    if(map){
+//        newDir = yourLocationBearing
+//        print("Top newDir: \(newDir!)")
+//    } else {
+        newDir = newDir.degreesToRadians
+        print("Bottom newDir: \(newDir!)")
+//    }
+    
     // ---------
     
     locationManager.delegate = locationDelegate
@@ -86,7 +97,7 @@ class CompassViewController: UIViewController {
       
       func computeNewAngle(with newAngle: CGFloat) -> CGFloat {
         let heading: CGFloat = {
-          let originalHeading = self.yourLocationBearing - newAngle.degreesToRadians
+          let originalHeading = self.newDir! - newAngle.degreesToRadians
           switch UIDevice.current.orientation {
           case .faceDown: return -originalHeading
           default: return originalHeading
@@ -112,7 +123,7 @@ class CompassViewController: UIViewController {
     
     func enableWalkButton() {
         walkStopButton.isEnabled = true
-        walkStopButton.backgroundColor = UIColor(red: 0, green: 0.8667, blue: 0.098, alpha: 1.0)
+        walkStopButton.backgroundColor = UIColor.green
         walkStopButton.setTitle("Walk", for: .normal)
     }
     
