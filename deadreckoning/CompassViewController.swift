@@ -135,7 +135,7 @@ class CompassViewController: UIViewController {
                     self.stepsTakenLabel.text = "\(Int(self.numberOfSteps!)) steps"
                     
                     let stepsLeft = self.totalSteps - self.numberOfSteps
-                    let distanceTraveled = (stepsLeft * 100) / self.paceCount!
+                    let distanceTraveled = (self.numberOfSteps * 100) / self.paceCount!
                     let distanceLeft = self.totalDistance - distanceTraveled
                     
                     self.stepsLeftLabel.text = "\(Int(stepsLeft)) steps"
