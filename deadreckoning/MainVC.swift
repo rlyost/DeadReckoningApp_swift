@@ -130,3 +130,24 @@ extension MainVC: CompassVCDelegate {
         dismiss(animated: true, completion: nil)
     }
 }
+
+extension UIView {
+    @IBInspectable
+    var cornerRadius: CGFloat {
+        get {
+            return layer.cornerRadius
+        }
+        set {
+            layer.cornerRadius = newValue
+        }
+    }
+    
+    @IBInspectable var round: Bool {
+        set {
+            layer.cornerRadius = layer.bounds.height / 2
+        }
+        get {
+            return layer.cornerRadius == layer.bounds.height / 2
+        }
+    }
+}

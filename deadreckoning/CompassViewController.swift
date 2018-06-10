@@ -25,7 +25,7 @@ class CompassViewController: UIViewController {
     @IBOutlet weak var walkStopButton: UIButton!
     var isWalking = false
     let pedometer = CMPedometer()
-    var numberOfSteps:Double! = nil
+    var numberOfSteps:Double! = 1
     var totalSteps:Double! = nil
     var totalDistance:Double! = nil
     var paceCount:Double! = nil
@@ -76,14 +76,7 @@ class CompassViewController: UIViewController {
     totalSteps = (paceCount * totalDistance) / 100.0
     totalStepsLabel.text = String(Int(totalSteps)) + " steps"
     
-    print(map)
-//    if(map){
-//        newDir = yourLocationBearing
-//        print("Top newDir: \(newDir!)")
-//    } else {
-        newDir = newDir.degreesToRadians
-        print("Bottom newDir: \(newDir!)")
-//    }
+    newDir = newDir.degreesToRadians
     
     // ---------
     
@@ -103,7 +96,6 @@ class CompassViewController: UIViewController {
           default: return originalHeading
           }
         }()
-//        print(self.radiansToDegrees(Double(Int(heading))))
         return CGFloat(self.orientationAdjustment().degreesToRadians + heading)
       }
       
@@ -139,8 +131,8 @@ class CompassViewController: UIViewController {
         if (isWalking) {
             enableStopButton()
             pedometer.startUpdates(from:Date(), withHandler: { data, error in
-                print("Update \(data?.numberOfSteps ?? 0)")
-                self.numberOfSteps = Double(truncating: data!.numberOfSteps)
+                print("Update \(data?.numberOfSteps ?? 1)")
+                self.numberOfSteps = Double(truncating: data!.numberOfSteps )
                 
                 DispatchQueue.main.async() {
                     self.stepsTakenLabel.text = "\(Int(self.numberOfSteps!)) steps"
@@ -153,7 +145,7 @@ class CompassViewController: UIViewController {
                     self.estimatedDistanceLeftLabel.text =
                         String(format: "%02.02f meters", distanceLeft)
                     
-                    // Reached goal?
+                    // Reached goal location?
                     if stepsLeft <= 0 {
                         print("Congrats!")
                         let alertController = UIAlertController(title: "Congratulations!", message: "You've reached your goal!'.", preferredStyle: .alert)
@@ -161,7 +153,6 @@ class CompassViewController: UIViewController {
                         alertController.addAction(action1)
                         self.present(alertController, animated: true, completion: self.delegate?.done)
                         self.isWalking = false
-                        // reset?
                     }
                 }
             })

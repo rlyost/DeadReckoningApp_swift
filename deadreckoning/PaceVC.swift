@@ -73,7 +73,7 @@ class PaceVC: UIViewController {
         }
         
         if let distance = self.distance{
-            distanceTravelled.text = String(format:"%02.02f meters, \n %02.02fmi", distance,miles(meters: distance))
+            distanceTravelled.text = String(format:"%02.02f meters \n %02.02fmi", distance,miles(meters: distance))
         }
         else{
             distanceTravelled.text = "Distance: N/A"
