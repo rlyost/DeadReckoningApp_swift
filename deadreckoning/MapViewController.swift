@@ -27,16 +27,20 @@ class MapViewController: UIViewController {
     //Set up Mapview
   override func viewWillAppear(_ animated: Bool) {
     mapView.showsUserLocation = true
-    if #available(iOS 9, *) {
-      mapView.showsScale = true
-      mapView.showsCompass = true
+    mapView.showsScale = true
+    mapView.showsCompass = true
+    if let myLocation {
+      centerMapOnLocation(location: myLocation)
     }
-    centerMapOnLocation(location: myLocation!)
   }
-    
+
   //Center and Zoom intial view your location
   func centerMapOnLocation(location: CLLocation) {
-    let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate, regionRadius * 2.0, regionRadius * 2.0)
+    let coordinateRegion = MKCoordinateRegion(
+      center: location.coordinate,
+      latitudinalMeters: regionRadius * 2.0,
+      longitudinalMeters: regionRadius * 2.0
+    )
     mapView.setRegion(coordinateRegion, animated: true)
   }
   

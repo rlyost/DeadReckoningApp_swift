@@ -7,6 +7,6 @@
 //
 
 import Foundation
-protocol PaceItemLableDelegate: class {
+protocol PaceItemLableDelegate: AnyObject {
     func itemPrint(by controller: PaceVC, with pace: String)
 }

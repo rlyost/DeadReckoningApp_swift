@@ -32,18 +32,14 @@ class PaceVC: UIViewController {
         startTimer()
         pedometer.startUpdates(from:Date(), withHandler: {( data, error ) in
             
-            if let pedData = data{
-                self.numberOfSteps = Int(truncating: data!.numberOfSteps)
-                
-                if let distance = pedData.distance{
+            if let pedData = data {
+                self.numberOfSteps = Int(truncating: pedData.numberOfSteps)
+
+                if let distance = pedData.distance {
                     self.distance = Double(truncating: distance)
                 }
-                if #available(iOS 9.0, *) {
-                    if let currentPace = pedData.currentPace{
-                        self.pace = Double(truncating: currentPace)
-                    }
-                } else {
-                    // Fallback on earlier versions
+                if let currentPace = pedData.currentPace {
+                    self.pace = Double(truncating: currentPace)
                 }
             }
             else {
@@ -59,8 +55,9 @@ class PaceVC: UIViewController {
     }
     
     @IBAction func submitPress(_ sender: UIButton) {
-        let num = (Double(numberOfSteps) / distance) * 100.0
-        delegate?.itemPrint(by: self, with:String(Int(num)) )
+        guard let steps = numberOfSteps, let distance, distance > 0 else { return }
+        let num = (Double(steps) / distance) * 100.0
+        delegate?.itemPrint(by: self, with: String(Int(num)))
     }
     
     func displayData(){

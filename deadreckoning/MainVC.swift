@@ -10,8 +10,7 @@ import UIKit
 import CoreLocation
 
 class MainVC: UIViewController {
-    
-    let locationDelegate = LocationDelegate()
+
     var latestLocation: CLLocation? = nil
     var yourLocationBearing: CGFloat { return latestLocation?.bearingToLocationDegrees(destinationLocation: self.yourLocation) ?? 0 }
     var distance: CGFloat { return CGFloat(latestLocation?.distance(from: self.yourLocation) ?? 0) }
@@ -21,14 +20,8 @@ class MainVC: UIViewController {
     }
     var map: Bool = false
     var newDir: CGFloat?
-    
-    let locationManager: CLLocationManager = {
-        $0.requestWhenInUseAuthorization()
-        $0.desiredAccuracy = kCLLocationAccuracyBest
-        $0.startUpdatingLocation()
-        $0.startUpdatingHeading()
-        return $0
-    }(CLLocationManager())
+
+    private var locationTask: Task<Void, Never>?
     
     @IBOutlet weak var paceCountField: UITextField!
     @IBOutlet weak var distanceField: UITextField!
@@ -42,14 +35,15 @@ class MainVC: UIViewController {
     }
     
     @IBAction func startButton(_ sender: UIButton) {
-        let pc = paceCountField.text!
-        let dist = distanceField.text!
-        let azimuth: String = directionField.text!
-        
-        if !pc.isEmpty && !dist.isEmpty && !azimuth.isEmpty {
+        let pc = paceCountField.text ?? ""
+        let dist = distanceField.text ?? ""
+        let azimuth = directionField.text ?? ""
+
+        if let paceValue = Double(pc), paceValue > 0,
+           Double(dist) != nil, Double(azimuth) != nil {
             performSegue(withIdentifier: "toCompassSegue", sender: self)
         } else {
-            let alertController = UIAlertController(title: "Error", message: "You must set all attributes first.", preferredStyle: .alert)
+            let alertController = UIAlertController(title: "Error", message: "Pace count, distance, and direction must all be valid numbers.", preferredStyle: .alert)
             let action1 = UIAlertAction(title: "Ok", style: .destructive)
             alertController.addAction(action1)
             self.present(alertController, animated: true, completion: nil)
@@ -67,10 +61,10 @@ class MainVC: UIViewController {
             controller.myLocation = latestLocation
         } else if segue.identifier == "toCompassSegue" {
             let compassVC = segue.destination as! CompassViewController
-            compassVC.totalDistance = Double(distanceField.text!)
-            compassVC.paceCount = Double(paceCountField.text!)
+            compassVC.totalDistance = Double(distanceField.text ?? "") ?? 0
+            compassVC.paceCount = Double(paceCountField.text ?? "") ?? 0
             compassVC.map = map
-            let newDir = CGFloat(Double(self.directionField.text!)!)
+            let newDir = CGFloat(Double(directionField.text ?? "") ?? 0)
             print(newDir)
             compassVC.newDir = newDir
             compassVC.delegate = self
@@ -84,13 +78,36 @@ class MainVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print("MainVC")
-        locationManager.delegate = locationDelegate
-        
-        locationDelegate.locationCallback = { location in self.latestLocation = location }
+
+        startLocationUpdates()
         view.addGestureRecognizer(UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing(_:))))
     }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        locationTask?.cancel()
+        locationTask = nil
+    }
+
     func viewDidAppear() {
         map = false
+    }
+
+    private func startLocationUpdates() {
+        locationTask?.cancel()
+        locationTask = Task { @MainActor [weak self] in
+            do {
+                for try await update in CLLocationUpdate.liveUpdates() {
+                    if Task.isCancelled { return }
+                    guard let self else { return }
+                    if let location = update.location {
+                        self.latestLocation = location
+                    }
+                }
+            } catch {
+                print("⚠️ Location stream error: \(error)")
+            }
+        }
     }
 }
 
@@ -120,7 +137,7 @@ extension MainVC: PaceItemLableDelegate {
 }
 
 // DELEGATE PROTOCOL
-protocol CompassVCDelegate: class {
+protocol CompassVCDelegate: AnyObject {
     func done()
 }
 //*******************

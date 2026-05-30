@@ -9,20 +9,19 @@
 import Foundation
 import CoreLocation
 
-class LocationDelegate: NSObject, CLLocationManagerDelegate {
-  var locationCallback: ((CLLocation) -> ())? = nil
+final class LocationDelegate: NSObject, CLLocationManagerDelegate {
   var headingCallback: ((CLLocationDirection) -> ())? = nil
-  
-  func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-    guard let currentLocation = locations.last else { return }
-    locationCallback?(currentLocation)
-  }
-  
+  var authorizationCallback: ((CLAuthorizationStatus) -> ())? = nil
+
   func locationManager(_ manager: CLLocationManager, didUpdateHeading newHeading: CLHeading) {
     headingCallback?(newHeading.trueHeading)
   }
-  
+
   func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
     print("⚠️ Error while updating location " + error.localizedDescription)
+  }
+
+  func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+    authorizationCallback?(manager.authorizationStatus)
   }
 }

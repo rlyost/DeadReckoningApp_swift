@@ -25,12 +25,12 @@ class CompassViewController: UIViewController {
     @IBOutlet weak var walkStopButton: UIButton!
     var isWalking = false
     let pedometer = CMPedometer()
-    var numberOfSteps:Double! = 1
-    var totalSteps:Double! = nil
-    var totalDistance:Double! = nil
-    var paceCount:Double! = nil
-    var map: Bool! = nil
-    var newDir: CGFloat! = nil
+    var numberOfSteps: Double = 0
+    var totalSteps: Double = 0
+    var totalDistance: Double = 0
+    var paceCount: Double = 0
+    var map: Bool = false
+    var newDir: CGFloat = 0
     //----
     
     let locationDelegate = LocationDelegate()
@@ -40,12 +40,11 @@ class CompassViewController: UIViewController {
     get { return UserDefaults.standard.currentLocation }
     set { UserDefaults.standard.currentLocation = newValue }
   }
-  
+
+  private var locationTask: Task<Void, Never>?
+
   let locationManager: CLLocationManager = {
-    $0.requestWhenInUseAuthorization()
     $0.desiredAccuracy = kCLLocationAccuracyBest
-    $0.startUpdatingLocation()
-    $0.startUpdatingHeading()
     return $0
   }(CLLocationManager())
   
@@ -57,12 +56,14 @@ class CompassViewController: UIViewController {
       }
     }()
     
+    let interfaceOrientation = view.window?.windowScene?.interfaceOrientation ?? .portrait
     let adjAngle: CGFloat = {
-      switch UIApplication.shared.statusBarOrientation {
+      switch interfaceOrientation {
       case .landscapeLeft:  return 90
       case .landscapeRight: return -90
       case .portrait, .unknown: return 0
       case .portraitUpsideDown: return isFaceDown ? 180 : -180
+      @unknown default: return 0
       }
     }()
     return adjAngle
@@ -72,25 +73,20 @@ class CompassViewController: UIViewController {
     super.viewDidLoad()
     print("CompassVC")
     resetCourse()
-    goalDistanceLabel.text = String(totalDistance!) + " meters"
+    goalDistanceLabel.text = String(totalDistance) + " meters"
     totalSteps = (paceCount * totalDistance) / 100.0
     totalStepsLabel.text = String(Int(totalSteps)) + " steps"
-    
+
     newDir = newDir.degreesToRadians
     
     // ---------
     
-    locationManager.delegate = locationDelegate
-    
-    locationDelegate.locationCallback = { location in
-      self.latestLocation = location
-    }
-    
-    locationDelegate.headingCallback = { newHeading in
-      
+    locationDelegate.headingCallback = { [weak self] newHeading in
+      guard let self else { return }
+
       func computeNewAngle(with newAngle: CGFloat) -> CGFloat {
         let heading: CGFloat = {
-          let originalHeading = self.newDir! - newAngle.degreesToRadians
+          let originalHeading = self.newDir - newAngle.degreesToRadians
           switch UIDevice.current.orientation {
           case .faceDown: return -originalHeading
           default: return originalHeading
@@ -98,14 +94,54 @@ class CompassViewController: UIViewController {
         }()
         return CGFloat(self.orientationAdjustment().degreesToRadians + heading)
       }
-      
+
       UIView.animate(withDuration: 0.5) {
         let angle = computeNewAngle(with: CGFloat(newHeading))
         self.imageView.transform = CGAffineTransform(rotationAngle: angle)
       }
     }
-    print("PaceCount: \(self.paceCount!)")
+
+    locationDelegate.authorizationCallback = { [weak self] status in
+      guard let self else { return }
+      switch status {
+      case .authorizedWhenInUse, .authorizedAlways:
+        self.locationManager.startUpdatingHeading()
+      case .notDetermined, .denied, .restricted:
+        break
+      @unknown default:
+        break
+      }
+    }
+
+    locationManager.delegate = locationDelegate
+    startLocationUpdates()
+
+    print("PaceCount: \(self.paceCount)")
     walkStopButtonPress(walkStopButton)
+  }
+
+  override func viewWillDisappear(_ animated: Bool) {
+    super.viewWillDisappear(animated)
+    locationTask?.cancel()
+    locationTask = nil
+    locationManager.stopUpdatingHeading()
+  }
+
+  private func startLocationUpdates() {
+    locationTask?.cancel()
+    locationTask = Task { @MainActor [weak self] in
+      do {
+        for try await update in CLLocationUpdate.liveUpdates() {
+          if Task.isCancelled { return }
+          guard let self else { return }
+          if let location = update.location {
+            self.latestLocation = location
+          }
+        }
+      } catch {
+        print("⚠️ Location stream error: \(error)")
+      }
+    }
   }
     // ---------------------
     
@@ -130,21 +166,23 @@ class CompassViewController: UIViewController {
         print(isWalking)
         if (isWalking) {
             enableStopButton()
-            pedometer.startUpdates(from:Date(), withHandler: { data, error in
-                print("Update \(data?.numberOfSteps ?? 1)")
-                self.numberOfSteps = Double(truncating: data!.numberOfSteps )
-                
-                DispatchQueue.main.async() {
-                    self.stepsTakenLabel.text = "\(Int(self.numberOfSteps!)) steps"
-                    
+            pedometer.startUpdates(from: Date()) { data, error in
+                guard let data else { return }
+                let steps = Double(truncating: data.numberOfSteps)
+                Task { @MainActor [weak self] in
+                    guard let self else { return }
+                    print("Update \(steps)")
+                    self.numberOfSteps = steps
+                    self.stepsTakenLabel.text = "\(Int(self.numberOfSteps)) steps"
+
                     let stepsLeft = self.totalSteps - self.numberOfSteps
-                    let distanceTraveled = (self.numberOfSteps * 100) / self.paceCount!
+                    let distanceTraveled = self.paceCount > 0 ? (self.numberOfSteps * 100) / self.paceCount : 0
                     let distanceLeft = self.totalDistance - distanceTraveled
-                    
+
                     self.stepsLeftLabel.text = "\(Int(stepsLeft)) steps"
                     self.estimatedDistanceLeftLabel.text =
                         String(format: "%02.02f meters", distanceLeft)
-                    
+
                     // Reached goal location?
                     if stepsLeft <= 0 {
                         print("Congrats!")
@@ -155,7 +193,7 @@ class CompassViewController: UIViewController {
                         self.isWalking = false
                     }
                 }
-            })
+            }
         } else {
             enableWalkButton()
             pedometer.stopUpdates()
