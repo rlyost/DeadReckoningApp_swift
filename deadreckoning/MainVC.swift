@@ -41,6 +41,7 @@ class MainVC: UIViewController {
 
         if let paceValue = Double(pc), paceValue > 0,
            Double(dist) != nil, Double(azimuth) != nil {
+            UserDefaults.standard.savedPaceCount = paceValue
             performSegue(withIdentifier: "toCompassSegue", sender: self)
         } else {
             let alertController = UIAlertController(title: "Error", message: "Pace count, distance, and direction must all be valid numbers.", preferredStyle: .alert)
@@ -93,6 +94,10 @@ class MainVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print("MainVC")
+
+        if let savedPace = UserDefaults.standard.savedPaceCount {
+            paceCountField.text = String(Int(savedPace))
+        }
 
         startLocationUpdates()
         view.addGestureRecognizer(UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing(_:))))
@@ -148,6 +153,9 @@ extension MainVC: PaceItemLableDelegate {
     func itemPrint(by controller: PaceVC, with pace: String) {
         print(pace)
         paceCountField.text = pace
+        if let paceValue = Double(pace) {
+            UserDefaults.standard.savedPaceCount = paceValue
+        }
     }
 }
 

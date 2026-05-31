@@ -15,6 +15,16 @@ extension UserDefaults {
     set { latitude = newValue.coordinate.latitude
           longitude = newValue.coordinate.longitude }
   }
+
+  var savedPaceCount: Double? {
+    get {
+      if object(forKey: #function) != nil {
+        return double(forKey: #function)
+      }
+      return nil
+    }
+    set { set(newValue, forKey: #function) }
+  }
   
   private var latitude: Double? {
     get {
