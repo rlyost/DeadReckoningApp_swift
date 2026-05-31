@@ -54,6 +54,21 @@ class MainVC: UIViewController {
         if segue.identifier == "toPaceCount" {
             let destination = segue.destination as! PaceVC
             destination.delegate = self
+        } else if segue.identifier == "toAboutSegue" {
+            let destination = segue.destination
+            _ = destination.view
+            if let label = destination.view.viewWithTag(42) as? UILabel,
+               let currentText = label.text {
+                let info = Bundle.main.infoDictionary
+                let version = info?["CFBundleShortVersionString"] as? String ?? ""
+                let build = info?["CFBundleVersion"] as? String ?? ""
+                let versionString = "Version \(version) (\(build))"
+                label.text = currentText.replacingOccurrences(
+                    of: #"Version \S+"#,
+                    with: versionString,
+                    options: .regularExpression
+                )
+            }
         } else if segue.identifier == "toMapSegue" {
             let navigationController = segue.destination as! UINavigationController
             let controller = navigationController.topViewController as! MapViewController

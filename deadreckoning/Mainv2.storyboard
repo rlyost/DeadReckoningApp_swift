@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="u0b-4W-3zb">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="u0b-4W-3zb">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -15,13 +15,10 @@
         <scene sceneID="Iuk-Hw-bkj">
             <objects>
                 <viewController id="07Y-1p-w23" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="dhJ-c4-SDA"/>
-                        <viewControllerLayoutGuide type="bottom" id="BuF-uw-HLn"/>
-                    </layoutGuides>
                     <view key="view" contentMode="top" id="jbB-t1-CAo">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="1200"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="abt-sA-001"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="doY-2W-7di">
                                 <rect key="frame" x="16" y="88" width="343" height="1254"/>
@@ -38,7 +35,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XEc-GA-jjf">
+                                            <label tag="42" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XEc-GA-jjf">
                                                 <rect key="frame" x="5" y="102" width="337" height="950"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="950" id="rIT-n6-U47"/>
@@ -76,8 +73,7 @@
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="D0P-RN-GSZ" secondAttribute="bottom" constant="200" id="SeF-J1-bhy"/>
                                     <constraint firstItem="D0P-RN-GSZ" firstAttribute="top" secondItem="doY-2W-7di" secondAttribute="top" id="Xpr-sV-2vW"/>
-                                    <constraint firstItem="D0P-RN-GSZ" firstAttribute="leading" secondItem="doY-2W-7di" secondAttribute="leading" id="XyT-Dd-xvh"/>
-                                    <constraint firstAttribute="trailing" secondItem="D0P-RN-GSZ" secondAttribute="trailing" constant="-4" id="jto-rd-vRS"/>
+                                    <constraint firstItem="D0P-RN-GSZ" firstAttribute="centerX" secondItem="doY-2W-7di" secondAttribute="centerX" id="abt-cX-001"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
@@ -85,8 +81,8 @@
                         <constraints>
                             <constraint firstItem="doY-2W-7di" firstAttribute="trailing" secondItem="jbB-t1-CAo" secondAttribute="trailingMargin" id="9fr-a3-OXh"/>
                             <constraint firstItem="doY-2W-7di" firstAttribute="leading" secondItem="jbB-t1-CAo" secondAttribute="leadingMargin" id="VI1-G1-Ar5"/>
-                            <constraint firstItem="BuF-uw-HLn" firstAttribute="top" secondItem="doY-2W-7di" secondAttribute="bottom" constant="-142" id="yJ8-hN-8EP"/>
-                            <constraint firstItem="doY-2W-7di" firstAttribute="top" secondItem="dhJ-c4-SDA" secondAttribute="bottom" id="zpZ-0g-Nc8"/>
+                            <constraint firstItem="abt-sA-001" firstAttribute="bottom" secondItem="doY-2W-7di" secondAttribute="bottom" constant="-142" id="yJ8-hN-8EP"/>
+                            <constraint firstItem="doY-2W-7di" firstAttribute="top" secondItem="abt-sA-001" secondAttribute="top" id="zpZ-0g-Nc8"/>
                         </constraints>
                     </view>
                     <size key="freeformSize" width="375" height="1200"/>
@@ -99,13 +95,10 @@
         <scene sceneID="XJa-Ja-Opo">
             <objects>
                 <viewController id="8V3-5V-QHT" customClass="PaceVC" customModule="deadreckoning" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Hso-MP-Bnu"/>
-                        <viewControllerLayoutGuide type="bottom" id="Eco-tO-odA"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="ExP-j8-mai">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="pvc-sA-001"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Steps" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EJ2-mX-uXT">
                                 <rect key="frame" x="21" y="206" width="115" height="55"/>
@@ -238,7 +231,7 @@
                             <constraint firstItem="EJ2-mX-uXT" firstAttribute="bottom" secondItem="bNP-iv-3WI" secondAttribute="bottom" id="FmI-DY-pYD"/>
                             <constraint firstItem="bNP-iv-3WI" firstAttribute="trailing" secondItem="ExP-j8-mai" secondAttribute="trailingMargin" id="HDY-LU-4Vy"/>
                             <constraint firstItem="EJ2-mX-uXT" firstAttribute="top" secondItem="bNP-iv-3WI" secondAttribute="top" id="JS5-WG-5ea"/>
-                            <constraint firstItem="Uzg-Wr-7wW" firstAttribute="top" secondItem="Hso-MP-Bnu" secondAttribute="bottom" constant="76" id="LY5-H9-9ba"/>
+                            <constraint firstItem="Uzg-Wr-7wW" firstAttribute="top" secondItem="pvc-sA-001" secondAttribute="top" constant="76" id="LY5-H9-9ba"/>
                             <constraint firstItem="vFc-FV-EVh" firstAttribute="leading" secondItem="Uzg-Wr-7wW" secondAttribute="trailing" constant="29" id="MBf-pj-xcI"/>
                             <constraint firstItem="bNP-iv-3WI" firstAttribute="leading" secondItem="EJ2-mX-uXT" secondAttribute="trailing" constant="29" id="OJ8-Vs-RfI"/>
                             <constraint firstAttribute="trailingMargin" secondItem="R0m-cM-wHb" secondAttribute="trailing" constant="15" id="aqN-gc-riD"/>
@@ -248,7 +241,7 @@
                             <constraint firstItem="bNP-iv-3WI" firstAttribute="trailing" secondItem="J1u-x4-3H6" secondAttribute="trailing" id="kFU-7P-VOI"/>
                             <constraint firstItem="R0m-cM-wHb" firstAttribute="leading" secondItem="ExP-j8-mai" secondAttribute="leadingMargin" constant="15" id="lug-sa-7jT"/>
                             <constraint firstItem="bNP-iv-3WI" firstAttribute="top" secondItem="vFc-FV-EVh" secondAttribute="bottom" constant="52" id="o4d-Pm-GLk"/>
-                            <constraint firstItem="vFc-FV-EVh" firstAttribute="top" secondItem="Hso-MP-Bnu" secondAttribute="bottom" constant="50" id="pQY-30-sd7"/>
+                            <constraint firstItem="vFc-FV-EVh" firstAttribute="top" secondItem="pvc-sA-001" secondAttribute="top" constant="50" id="pQY-30-sd7"/>
                             <constraint firstItem="bNP-iv-3WI" firstAttribute="leading" secondItem="J1u-x4-3H6" secondAttribute="leading" id="qPf-ep-UGT"/>
                             <constraint firstAttribute="trailingMargin" secondItem="eGV-Qg-6iB" secondAttribute="trailing" constant="40" id="rAG-UW-Ddh"/>
                             <constraint firstItem="vFc-FV-EVh" firstAttribute="trailing" secondItem="ExP-j8-mai" secondAttribute="trailingMargin" id="ugl-R8-NW0"/>
@@ -273,13 +266,10 @@
         <scene sceneID="pO0-n9-cdC">
             <objects>
                 <viewController id="5mn-iz-0Ce" customClass="MainVC" customModule="deadreckoning" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="hXh-qV-ci7"/>
-                        <viewControllerLayoutGuide type="bottom" id="gy2-yY-WsG"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="soy-gc-cCl">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="mvc-sA-001"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Land Navigation Training" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2kn-Bm-QLl">
                                 <rect key="frame" x="20" y="133" width="374" height="30"/>
@@ -397,7 +387,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DEAD RECKONING" textAlignment="center" lineBreakMode="wordWrap" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="liW-lj-xD4">
                                 <rect key="frame" x="20" y="91" width="374" height="34"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="34" id="Q77-WW-7fe"/>
+                                    <constraint firstAttribute="height" constant="44" id="Q77-WW-7fe"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Rockwell-Regular" family="Rockwell" pointSize="26"/>
                                 <nil key="textColor"/>
@@ -447,7 +437,7 @@ Dead reckoning is moving a set distance along a set line. Generally, it involves
                             <constraint firstItem="xJX-8s-BpX" firstAttribute="leading" secondItem="al8-W3-c8R" secondAttribute="leading" id="Fii-od-h4Q"/>
                             <constraint firstItem="9yP-dE-Sgt" firstAttribute="leading" secondItem="MSq-oq-2Lm" secondAttribute="leading" id="Fmi-Cf-sjz"/>
                             <constraint firstItem="618-dx-eU0" firstAttribute="leading" secondItem="weC-U9-ch1" secondAttribute="leading" id="IJk-6r-BT8"/>
-                            <constraint firstItem="gy2-yY-WsG" firstAttribute="top" secondItem="VJc-aR-vUF" secondAttribute="bottom" constant="58" id="K9z-wj-3du"/>
+                            <constraint firstItem="mvc-sA-001" firstAttribute="bottom" secondItem="VJc-aR-vUF" secondAttribute="bottom" constant="58" id="K9z-wj-3du"/>
                             <constraint firstItem="MSq-oq-2Lm" firstAttribute="trailing" secondItem="xJX-8s-BpX" secondAttribute="trailing" id="KIY-OP-O6X"/>
                             <constraint firstItem="MSq-oq-2Lm" firstAttribute="leading" secondItem="al8-W3-c8R" secondAttribute="leading" id="P9B-8p-lnb"/>
                             <constraint firstItem="vX5-8t-m08" firstAttribute="top" secondItem="gCa-Uq-pUr" secondAttribute="bottom" constant="8" symbolic="YES" id="SCE-gV-6Ju"/>
@@ -459,7 +449,7 @@ Dead reckoning is moving a set distance along a set line. Generally, it involves
                             <constraint firstItem="2kn-Bm-QLl" firstAttribute="leading" secondItem="soy-gc-cCl" secondAttribute="leadingMargin" id="de8-C8-ThA"/>
                             <constraint firstItem="gCa-Uq-pUr" firstAttribute="leading" secondItem="vX5-8t-m08" secondAttribute="leading" id="fX1-sN-6ZN"/>
                             <constraint firstItem="t0R-fj-JkR" firstAttribute="leading" secondItem="xJX-8s-BpX" secondAttribute="leading" id="gTI-kK-JMN"/>
-                            <constraint firstItem="liW-lj-xD4" firstAttribute="top" secondItem="hXh-qV-ci7" secondAttribute="bottom" constant="27" id="gVs-kG-JUx"/>
+                            <constraint firstItem="liW-lj-xD4" firstAttribute="top" secondItem="soy-gc-cCl" secondAttribute="top" constant="120" id="gVs-kG-JUx"/>
                             <constraint firstItem="gCa-Uq-pUr" firstAttribute="leading" secondItem="723-vg-V55" secondAttribute="leading" id="jnJ-J0-B5t"/>
                             <constraint firstItem="VJc-aR-vUF" firstAttribute="centerX" secondItem="soy-gc-cCl" secondAttribute="centerX" id="lbq-ze-I9P"/>
                             <constraint firstItem="weC-U9-ch1" firstAttribute="top" secondItem="618-dx-eU0" secondAttribute="bottom" constant="65" id="llX-nZ-fdK"/>
@@ -477,7 +467,7 @@ Dead reckoning is moving a set distance along a set line. Generally, it involves
                     <navigationItem key="navigationItem" id="xHo-sE-G0W">
                         <barButtonItem key="rightBarButtonItem" title="About" id="Vgc-FG-gnH">
                             <connections>
-                                <segue destination="07Y-1p-w23" kind="show" id="Wfv-n5-m1h"/>
+                                <segue destination="07Y-1p-w23" kind="show" identifier="toAboutSegue" id="Wfv-n5-m1h"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -496,13 +486,10 @@ Dead reckoning is moving a set distance along a set line. Generally, it involves
         <scene sceneID="BQc-z0-7jR">
             <objects>
                 <viewController id="Oq4-qg-p8t" customClass="CompassViewController" customModule="deadreckoning" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="60Y-rs-4S9"/>
-                        <viewControllerLayoutGuide type="bottom" id="5F9-T0-v3L"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="nyq-5Q-OOl">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="cvc-sA-001"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Steps left:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PMg-Ce-GH9">
                                 <rect key="frame" x="30" y="489" width="89" height="21"/>
@@ -646,7 +633,7 @@ Dead reckoning is moving a set distance along a set line. Generally, it involves
                             <constraint firstItem="nVs-ce-fMd" firstAttribute="leading" secondItem="nyq-5Q-OOl" secondAttribute="leadingMargin" constant="10" id="RA2-PI-f9Y"/>
                             <constraint firstItem="5SQ-EL-2FZ" firstAttribute="leading" secondItem="nyq-5Q-OOl" secondAttribute="leadingMargin" constant="10" id="Vzj-Yo-flh"/>
                             <constraint firstAttribute="trailingMargin" secondItem="uQb-7R-Q2K" secondAttribute="trailing" id="awR-EZ-Mkf"/>
-                            <constraint firstItem="5F9-T0-v3L" firstAttribute="top" secondItem="e9B-g6-kLk" secondAttribute="bottom" constant="68" id="bIB-q3-NDn"/>
+                            <constraint firstItem="cvc-sA-001" firstAttribute="bottom" secondItem="e9B-g6-kLk" secondAttribute="bottom" constant="68" id="bIB-q3-NDn"/>
                             <constraint firstItem="fDf-Yj-EBz" firstAttribute="leading" secondItem="nyq-5Q-OOl" secondAttribute="leadingMargin" constant="10" id="cSe-YG-Zuf"/>
                             <constraint firstItem="e9B-g6-kLk" firstAttribute="centerX" secondItem="nyq-5Q-OOl" secondAttribute="centerX" id="cjC-z1-gn2"/>
                             <constraint firstItem="lBw-3s-miB" firstAttribute="top" secondItem="k3i-ZS-R85" secondAttribute="bottom" constant="8" id="eIx-Kb-fez"/>
@@ -679,13 +666,10 @@ Dead reckoning is moving a set distance along a set line. Generally, it involves
         <scene sceneID="qg5-Ff-ASD">
             <objects>
                 <viewController restorationIdentifier="MapViewController" storyboardIdentifier="MapViewController" id="PgW-61-yUE" customClass="MapViewController" customModule="deadreckoning" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Q8z-dF-kcg"/>
-                        <viewControllerLayoutGuide type="bottom" id="anL-6N-G5D"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="5Uc-hl-Cat">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="map-sA-001"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="2KF-fR-QKX">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
@@ -693,7 +677,7 @@ Dead reckoning is moving a set distance along a set line. Generally, it involves
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="anL-6N-G5D" firstAttribute="top" secondItem="2KF-fR-QKX" secondAttribute="bottom" id="GUu-yB-vEm"/>
+                            <constraint firstItem="map-sA-001" firstAttribute="bottom" secondItem="2KF-fR-QKX" secondAttribute="bottom" id="GUu-yB-vEm"/>
                             <constraint firstItem="2KF-fR-QKX" firstAttribute="leading" secondItem="5Uc-hl-Cat" secondAttribute="leading" id="beX-Ug-Xkk"/>
                             <constraint firstAttribute="trailing" secondItem="2KF-fR-QKX" secondAttribute="trailing" id="fd3-ve-OJ5"/>
                             <constraint firstItem="2KF-fR-QKX" firstAttribute="top" secondItem="5Uc-hl-Cat" secondAttribute="top" id="k5T-yT-Q1j"/>
