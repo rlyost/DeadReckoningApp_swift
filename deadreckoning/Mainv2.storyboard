@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="u0b-4W-3zb">
-    <device id="retina5_5" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="24765" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="u0b-4W-3zb">
+    <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24743"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -18,13 +15,12 @@
                     <view key="view" contentMode="top" id="jbB-t1-CAo">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="1200"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="abt-sA-001"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="doY-2W-7di">
-                                <rect key="frame" x="16" y="88" width="343" height="1254"/>
+                                <rect key="frame" x="16" y="74" width="343" height="1268"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D0P-RN-GSZ">
-                                        <rect key="frame" x="0.0" y="0.0" width="347" height="1000"/>
+                                        <rect key="frame" x="-2" y="0.0" width="347" height="1000"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DEAD RECKONING" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2UE-QV-eSg">
                                                 <rect key="frame" x="46" y="14" width="255" height="43"/>
@@ -35,18 +31,30 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label tag="42" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XEc-GA-jjf">
-                                                <rect key="frame" x="5" y="102" width="337" height="950"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" tag="42" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XEc-GA-jjf">
+                                                <rect key="frame" x="5" y="84" width="337" height="950"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="950" id="rIT-n6-U47"/>
                                                 </constraints>
-                                                <mutableString key="text">Version 1.0  The U.S. Army defines Dead Reckoning as a land navigation technique in FM 3-25.26  Section 12-5.  It is taught in basic land navigation instruction so that military students can learn how to read a map, how to use a compass and how to calculate the declination angle on any map.  A WORD ON DECLINATION ANGLES: As currently programmed this app points to true north.  This is because the Apple Mapkit is based on true north. The App works perfectly if you use the map to tap your destination.  IF you manually input your direction, you must input the true north (map angle) and not the angle that accounts for the magnetic north declination angle.  Every point on the earth has a declination angle (you can find it on topographic maps).  This angle is the difference between magnetic and true north. The angle varies depending upon your location.  A normal compass will always point to the magnetic north.  Maps are made considering true north.  Generally to navigate using a map and compass you must convert your direction of travel determined on a map by considering the declination angle at your location before navigating on the azimuth using a compass.  This app uses true north (Please consider that in your travels).  I hope you enjoy and learn using this app!  Coded by a U.S. Army Ranger. Rangers Lead the Way!</mutableString>
+                                                <mutableString key="text">Version 1.0
+
+Important: If you enter your direction manually, use the true north angle (the map angle). Do not use the angle adjusted for magnetic north. This app points to true north because Apple MapKit is built on true north. The app works perfectly when you tap your destination on the map.
+
+The U.S. Army defines Dead Reckoning as a land navigation technique in FM 3-25.26, Section 12-5. It shows up in basic land navigation training. Students learn to read a map, use a compass, and calculate the declination angle on any map.
+
+A word on declination angles. Every point on earth has one. You can find it on topographic maps. It is the difference between magnetic north and true north, and it changes depending on your location. A standard compass always points to magnetic north. Maps are drawn to true north.
+
+Normally, to navigate with a map and compass, you convert your map direction using the local declination angle, then follow the azimuth with your compass. This app uses true north. Keep that in mind on your travels.
+
+I hope you enjoy the app and learn from it.
+
+Coded by a Ranger-qualified Army Officer. Rangers Lead the Way.</mutableString>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Land Navigation Training" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m0c-Vr-Jyj">
-                                                <rect key="frame" x="79" y="64" width="189" height="20"/>
+                                                <rect key="frame" x="79.666666666666686" y="64" width="188" height="20"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="20" id="xYG-nM-vYn"/>
                                                 </constraints>
@@ -60,7 +68,7 @@
                                             <constraint firstAttribute="height" constant="1000" id="FcY-CY-8P1"/>
                                             <constraint firstAttribute="width" constant="347" id="LnF-iU-TSG"/>
                                             <constraint firstItem="m0c-Vr-Jyj" firstAttribute="top" secondItem="2UE-QV-eSg" secondAttribute="bottom" constant="7" id="Lpw-My-Syp"/>
-                                            <constraint firstItem="XEc-GA-jjf" firstAttribute="top" secondItem="m0c-Vr-Jyj" secondAttribute="bottom" constant="18" id="Yle-G4-v69"/>
+                                            <constraint firstItem="XEc-GA-jjf" firstAttribute="top" secondItem="m0c-Vr-Jyj" secondAttribute="bottom" id="Yle-G4-v69"/>
                                             <constraint firstItem="XEc-GA-jjf" firstAttribute="centerX" secondItem="D0P-RN-GSZ" secondAttribute="centerX" id="cUv-NB-s4I"/>
                                             <constraint firstItem="XEc-GA-jjf" firstAttribute="leading" secondItem="D0P-RN-GSZ" secondAttribute="leading" constant="5" id="eib-wE-vd0"/>
                                             <constraint firstItem="2UE-QV-eSg" firstAttribute="centerX" secondItem="m0c-Vr-Jyj" secondAttribute="centerX" id="fAe-Id-Ihx"/>
@@ -77,6 +85,7 @@
                                 </constraints>
                             </scrollView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="abt-sA-001"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="doY-2W-7di" firstAttribute="trailing" secondItem="jbB-t1-CAo" secondAttribute="trailingMargin" id="9fr-a3-OXh"/>
@@ -98,16 +107,15 @@
                     <view key="view" contentMode="scaleToFill" id="ExP-j8-mai">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="pvc-sA-001"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Steps" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EJ2-mX-uXT">
-                                <rect key="frame" x="21" y="206" width="115" height="55"/>
+                                <rect key="frame" x="21" y="216" width="115" height="55"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bNP-iv-3WI">
-                                <rect key="frame" x="165" y="206" width="229" height="55"/>
+                                <rect key="frame" x="165" y="216" width="229" height="55"/>
                                 <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="229" id="WOf-bW-AEM"/>
@@ -128,7 +136,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Timer" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uzg-Wr-7wW">
-                                <rect key="frame" x="21" y="140" width="156" height="41"/>
+                                <rect key="frame" x="21" y="150" width="156" height="41"/>
                                 <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="156" id="hFU-tt-Ip3"/>
@@ -148,7 +156,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pace Count Calculator" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vFc-FV-EVh">
-                                <rect key="frame" x="206" y="114" width="188" height="40"/>
+                                <rect key="frame" x="206" y="124" width="188" height="40"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -165,7 +173,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="eGV-Qg-6iB">
                                 <rect key="frame" x="60" y="479" width="294" height="190"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ybm-1O-cKJ">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ybm-1O-cKJ">
                                         <rect key="frame" x="0.0" y="0.0" width="294" height="50"/>
                                         <color key="backgroundColor" red="0.91315038069999999" green="0.0" blue="0.051234747269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -181,7 +189,7 @@
                                             <action selector="stopButtonPress:" destination="8V3-5V-QHT" eventType="touchUpInside" id="5nJ-9c-dXh"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HG1-nS-ksc" customClass="Circle" customModule="deadreckoning" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HG1-nS-ksc" customClass="Circle" customModule="deadreckoning" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="70" width="294" height="50"/>
                                         <color key="backgroundColor" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -200,7 +208,7 @@
                                             <action selector="startButtonPress:" destination="8V3-5V-QHT" eventType="touchUpInside" id="EsT-dn-Xqi"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ptU-g6-HLJ" customClass="Circle" customModule="deadreckoning" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ptU-g6-HLJ" customClass="Circle" customModule="deadreckoning" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="140" width="294" height="50"/>
                                         <color key="backgroundColor" red="0.0" green="0.56284224989999998" blue="0.31881666180000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -223,6 +231,7 @@
                                 </subviews>
                             </stackView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="pvc-sA-001"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="EJ2-mX-uXT" firstAttribute="leading" secondItem="Uzg-Wr-7wW" secondAttribute="leading" id="3Gk-1V-Xnu"/>
@@ -269,10 +278,9 @@
                     <view key="view" contentMode="scaleToFill" id="soy-gc-cCl">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="mvc-sA-001"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Land Navigation Training" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2kn-Bm-QLl">
-                                <rect key="frame" x="20" y="133" width="374" height="30"/>
+                                <rect key="frame" x="20" y="172" width="374" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="Qj5-vg-05e"/>
                                 </constraints>
@@ -281,7 +289,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Pace Count (per 100 meters):" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="723-vg-V55">
-                                <rect key="frame" x="20" y="185" width="265" height="29"/>
+                                <rect key="frame" x="20" y="224" width="262.66666666666669" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="29" id="JFA-0a-NQf"/>
                                 </constraints>
@@ -290,50 +298,47 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Direction in degrees:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="al8-W3-c8R">
-                                <rect key="frame" x="20" y="394" width="195" height="20.666666666666686"/>
+                                <rect key="frame" x="20" y="409.33333333333331" width="195" height="20.666666666666686"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gCa-Uq-pUr">
-                                <rect key="frame" x="20" y="221" width="150" height="24"/>
+                                <rect key="frame" x="20" y="260" width="150" height="24"/>
                                 <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="mAD-uH-EoI"/>
                                     <constraint firstAttribute="height" constant="24" id="xAZ-nn-lAw"/>
                                 </constraints>
-                                <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter Above or Click Calculate." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vX5-8t-m08">
-                                <rect key="frame" x="20" y="253" width="205.66666666666666" height="38"/>
+                                <rect key="frame" x="20" y="292" width="205.66666666666666" height="14.333333333333314"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MSq-oq-2Lm">
-                                <rect key="frame" x="20" y="350" width="150" height="24"/>
+                                <rect key="frame" x="20" y="365.33333333333331" width="150" height="24"/>
                                 <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="24" id="Q7d-HL-zDT"/>
                                 </constraints>
-                                <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xJX-8s-BpX">
-                                <rect key="frame" x="20" y="422.66666666666669" width="150" height="24"/>
+                                <rect key="frame" x="20" y="438" width="150" height="24"/>
                                 <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="24" id="w66-2O-9iD"/>
                                 </constraints>
-                                <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Distance in meters:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9yP-dE-Sgt">
-                                <rect key="frame" x="20" y="321" width="553" height="21"/>
+                                <rect key="frame" x="20" y="336.33333333333331" width="553" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="6jY-Ob-Bme"/>
                                     <constraint firstAttribute="width" constant="553" id="Q4j-UB-ogt"/>
@@ -342,7 +347,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VJc-aR-vUF">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VJc-aR-vUF">
                                 <rect key="frame" x="75.666666666666686" y="628" width="263" height="50"/>
                                 <color key="backgroundColor" red="0.17078818230000001" green="0.42429409899999998" blue="0.093925939959999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -362,8 +367,8 @@
                                     <action selector="startButton:" destination="5mn-iz-0Ce" eventType="touchUpInside" id="5FC-5Y-QSb"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="618-dx-eU0">
-                                <rect key="frame" x="255" y="222" width="140" height="50"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="618-dx-eU0">
+                                <rect key="frame" x="255" y="261" width="140" height="50"/>
                                 <color key="backgroundColor" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="MFG-ue-asa"/>
@@ -385,7 +390,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DEAD RECKONING" textAlignment="center" lineBreakMode="wordWrap" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="liW-lj-xD4">
-                                <rect key="frame" x="20" y="91" width="374" height="34"/>
+                                <rect key="frame" x="20" y="120" width="374" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="Q77-WW-7fe"/>
                                 </constraints>
@@ -404,8 +409,8 @@ Dead reckoning is moving a set distance along a set line. Generally, it involves
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="weC-U9-ch1">
-                                <rect key="frame" x="255" y="337" width="140" height="50"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="weC-U9-ch1">
+                                <rect key="frame" x="255" y="376" width="140" height="50"/>
                                 <color key="backgroundColor" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="aMe-Lh-TVu"/>
@@ -425,13 +430,12 @@ Dead reckoning is moving a set distance along a set line. Generally, it involves
                                 </connections>
                             </button>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="mvc-sA-001"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="723-vg-V55" firstAttribute="top" secondItem="2kn-Bm-QLl" secondAttribute="bottom" constant="22" id="1IC-ET-7Xa"/>
                             <constraint firstItem="gCa-Uq-pUr" firstAttribute="trailing" secondItem="MSq-oq-2Lm" secondAttribute="trailing" id="4lg-pm-dcZ"/>
-                            <constraint firstItem="2kn-Bm-QLl" firstAttribute="leading" secondItem="liW-lj-xD4" secondAttribute="leading" id="4lv-9n-R0x"/>
-                            <constraint firstItem="2kn-Bm-QLl" firstAttribute="trailing" secondItem="weC-U9-ch1" secondAttribute="trailing" constant="-1" id="5eu-7K-cSR"/>
-                            <constraint firstItem="618-dx-eU0" firstAttribute="leading" secondItem="vX5-8t-m08" secondAttribute="trailing" constant="29.333333333333343" id="79p-D0-P4j"/>
+                                                                                    <constraint firstItem="618-dx-eU0" firstAttribute="leading" secondItem="vX5-8t-m08" secondAttribute="trailing" constant="29.333333333333343" id="79p-D0-P4j"/>
                             <constraint firstItem="VJc-aR-vUF" firstAttribute="top" secondItem="t0R-fj-JkR" secondAttribute="bottom" constant="6" id="94y-Ls-TL7"/>
                             <constraint firstItem="weC-U9-ch1" firstAttribute="trailing" secondItem="618-dx-eU0" secondAttribute="trailing" id="9ba-7G-2gX"/>
                             <constraint firstItem="xJX-8s-BpX" firstAttribute="leading" secondItem="al8-W3-c8R" secondAttribute="leading" id="Fii-od-h4Q"/>
@@ -489,12 +493,10 @@ Dead reckoning is moving a set distance along a set line. Generally, it involves
                     <view key="view" contentMode="scaleToFill" id="nyq-5Q-OOl">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="cvc-sA-001"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Steps left:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PMg-Ce-GH9">
                                 <rect key="frame" x="30" y="489" width="89" height="21"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="89" id="6BK-bz-oN6"/>
                                     <constraint firstAttribute="height" constant="21" id="xce-DY-SnS"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -505,7 +507,6 @@ Dead reckoning is moving a set distance along a set line. Generally, it involves
                                 <rect key="frame" x="30" y="518" width="96" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="EyB-Ei-tQS"/>
-                                    <constraint firstAttribute="width" constant="96" id="TXg-U3-VOE"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -514,7 +515,6 @@ Dead reckoning is moving a set distance along a set line. Generally, it involves
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Estimated Distance left:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ObA-Dr-sMc">
                                 <rect key="frame" x="30" y="547" width="182" height="21"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="182" id="oJ3-Ft-Dph"/>
                                     <constraint firstAttribute="height" constant="21" id="xIQ-Qq-clD"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -525,7 +525,6 @@ Dead reckoning is moving a set distance along a set line. Generally, it involves
                                 <rect key="frame" x="30" y="576" width="111" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="Onr-rF-qp3"/>
-                                    <constraint firstAttribute="width" constant="111" id="Wg4-Ey-zHD"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -581,7 +580,6 @@ Dead reckoning is moving a set distance along a set line. Generally, it involves
                                 <rect key="frame" x="30" y="460" width="155" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="fQY-6t-HzR"/>
-                                    <constraint firstAttribute="width" constant="155" id="uAD-Hb-iw5"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -596,7 +594,7 @@ Dead reckoning is moving a set distance along a set line. Generally, it involves
                                     <constraint firstAttribute="width" secondItem="vsu-I9-fEU" secondAttribute="height" multiplier="1:1" id="vMx-1L-HJY"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e9B-g6-kLk">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e9B-g6-kLk">
                                 <rect key="frame" x="75.666666666666686" y="618" width="263" height="50"/>
                                 <color key="backgroundColor" red="0.17078818230000001" green="0.42429409899999998" blue="0.093925939959999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -614,16 +612,17 @@ Dead reckoning is moving a set distance along a set line. Generally, it involves
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="cvc-sA-001"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="0fv-nQ-NJI" firstAttribute="leading" secondItem="nVs-ce-fMd" secondAttribute="trailing" constant="46" id="2SM-zg-cIY"/>
+                            <constraint firstItem="0fv-nQ-NJI" firstAttribute="leading" secondItem="uQb-7R-Q2K" secondAttribute="leading" id="2SM-zg-cIY"/>
                             <constraint firstAttribute="trailingMargin" secondItem="lBw-3s-miB" secondAttribute="trailing" id="4nF-AB-msx"/>
                             <constraint firstItem="k3i-ZS-R85" firstAttribute="top" secondItem="0fv-nQ-NJI" secondAttribute="bottom" constant="9" id="6hI-dq-ddf"/>
                             <constraint firstItem="e9B-g6-kLk" firstAttribute="top" secondItem="5SQ-EL-2FZ" secondAttribute="bottom" constant="21" id="7Ej-lA-ag5"/>
                             <constraint firstItem="vsu-I9-fEU" firstAttribute="height" relation="lessThanOrEqual" secondItem="nyq-5Q-OOl" secondAttribute="height" id="8Cg-86-qzw"/>
                             <constraint firstItem="ObA-Dr-sMc" firstAttribute="leading" secondItem="nyq-5Q-OOl" secondAttribute="leadingMargin" constant="10" id="8KQ-hw-8qz"/>
                             <constraint firstItem="uQb-7R-Q2K" firstAttribute="top" secondItem="lBw-3s-miB" secondAttribute="bottom" constant="8" id="BMf-k4-5z4"/>
-                            <constraint firstItem="k3i-ZS-R85" firstAttribute="leading" secondItem="PMg-Ce-GH9" secondAttribute="trailing" constant="112" id="D9b-j9-tQ2"/>
+                            <constraint firstItem="k3i-ZS-R85" firstAttribute="leading" secondItem="uQb-7R-Q2K" secondAttribute="leading" id="D9b-j9-tQ2"/>
                             <constraint firstItem="e9B-g6-kLk" firstAttribute="top" secondItem="vaO-3L-NDw" secondAttribute="bottom" constant="21" id="Jqh-Uj-ylm"/>
                             <constraint firstItem="vaO-3L-NDw" firstAttribute="top" secondItem="uQb-7R-Q2K" secondAttribute="bottom" constant="8" id="MbV-lx-AOZ"/>
                             <constraint firstItem="fDf-Yj-EBz" firstAttribute="top" secondItem="PMg-Ce-GH9" secondAttribute="bottom" constant="8" id="MmK-ab-uNL"/>
@@ -643,8 +642,8 @@ Dead reckoning is moving a set distance along a set line. Generally, it involves
                             <constraint firstItem="PMg-Ce-GH9" firstAttribute="leading" secondItem="nyq-5Q-OOl" secondAttribute="leadingMargin" constant="10" id="j2h-0N-dlX"/>
                             <constraint firstAttribute="trailingMargin" secondItem="vaO-3L-NDw" secondAttribute="trailing" id="j8I-FP-Fsg"/>
                             <constraint firstItem="PMg-Ce-GH9" firstAttribute="top" secondItem="nVs-ce-fMd" secondAttribute="bottom" constant="8" id="leY-hQ-aOk"/>
-                            <constraint firstItem="lBw-3s-miB" firstAttribute="leading" secondItem="fDf-Yj-EBz" secondAttribute="trailing" constant="105" id="lw7-ty-emG"/>
-                            <constraint firstItem="vaO-3L-NDw" firstAttribute="leading" secondItem="5SQ-EL-2FZ" secondAttribute="trailing" constant="90" id="n0P-75-9IS"/>
+                            <constraint firstItem="lBw-3s-miB" firstAttribute="leading" secondItem="uQb-7R-Q2K" secondAttribute="leading" id="lw7-ty-emG"/>
+                            <constraint firstItem="vaO-3L-NDw" firstAttribute="leading" secondItem="uQb-7R-Q2K" secondAttribute="leading" id="n0P-75-9IS"/>
                             <constraint firstItem="vsu-I9-fEU" firstAttribute="centerY" secondItem="nyq-5Q-OOl" secondAttribute="centerY" constant="-122.5" id="urP-gM-PGC"/>
                         </constraints>
                     </view>
@@ -669,12 +668,12 @@ Dead reckoning is moving a set distance along a set line. Generally, it involves
                     <view key="view" contentMode="scaleToFill" id="5Uc-hl-Cat">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="map-sA-001"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="2KF-fR-QKX">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                             </mapView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="map-sA-001"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="map-sA-001" firstAttribute="bottom" secondItem="2KF-fR-QKX" secondAttribute="bottom" id="GUu-yB-vEm"/>
@@ -709,7 +708,7 @@ Dead reckoning is moving a set distance along a set line. Generally, it involves
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="u0b-4W-3zb" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="EPt-X4-rzb">
-                        <rect key="frame" x="0.0" y="20" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="414" height="54"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -727,7 +726,7 @@ Dead reckoning is moving a set distance along a set line. Generally, it involves
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="rPO-96-JwU" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="dID-HM-gds">
-                        <rect key="frame" x="0.0" y="20" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="414" height="54"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -742,5 +741,11 @@ Dead reckoning is moving a set distance along a set line. Generally, it involves
     </scenes>
     <resources>
         <image name="arrow" width="1280" height="1280"/>
+        <systemColor name="secondarySystemBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

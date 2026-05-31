@@ -2,8 +2,8 @@
 //  CompassViewController.swift
 //  dead reckoning
 //
-//  Created by Echelon Front on 11/05/18.
-//  Copyright © 2018 Echelon Front. All rights reserved.
+//  Created by Yost Group LLC on 11/05/18.
+//  Copyright © 2018-2026 Yost Group LLC. All rights reserved.
 //
 
 import UIKit
@@ -184,13 +184,17 @@ class CompassViewController: UIViewController {
                         String(format: "%02.02f meters", distanceLeft)
 
                     // Reached goal location?
-                    if stepsLeft <= 0 {
+                    if stepsLeft <= 0 && self.isWalking {
                         print("Congrats!")
-                        let alertController = UIAlertController(title: "Congratulations!", message: "You've reached your goal!'.", preferredStyle: .alert)
-                        let action1 = UIAlertAction(title: "Ok", style: .destructive)
-                        alertController.addAction(action1)
-                        self.present(alertController, animated: true, completion: self.delegate?.done)
                         self.isWalking = false
+                        self.pedometer.stopUpdates()
+                        self.enableWalkButton()
+                        let alertController = UIAlertController(title: "Congratulations!", message: "You've reached your goal!", preferredStyle: .alert)
+                        let action1 = UIAlertAction(title: "Ok", style: .default) { [weak self] _ in
+                            self?.delegate?.done()
+                        }
+                        alertController.addAction(action1)
+                        self.present(alertController, animated: true, completion: nil)
                     }
                 }
             }

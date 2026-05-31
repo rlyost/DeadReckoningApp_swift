@@ -2,8 +2,8 @@
 //  AppDelegate.swift
 //  dead reckoning
 //
-//  Created by Echelon Front on 11/05/18.
-//  Copyright © 2018 Echelon Front. All rights reserved.
+//  Created by Yost Group LLC on 11/05/18.
+//  Copyright © 2018-2026 Yost Group LLC. All rights reserved.
 //
 
 import UIKit

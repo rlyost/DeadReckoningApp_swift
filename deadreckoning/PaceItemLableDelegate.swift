@@ -2,8 +2,8 @@
 //  PaceItemLableDelegate.swift
 //  DeadReckoning
 //
-//  Created by Amandeep Singh on 5/10/18.
-//  Copyright © 2018 Echelon Front. All rights reserved.
+//  Created by Yost Group LLC on 5/10/18.
+//  Copyright © 2018-2026 Yost Group LLC. All rights reserved.
 //
 
 import Foundation
