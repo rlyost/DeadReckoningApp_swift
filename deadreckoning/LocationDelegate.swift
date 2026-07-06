@@ -14,7 +14,13 @@ final class LocationDelegate: NSObject, CLLocationManagerDelegate {
   var authorizationCallback: ((CLAuthorizationStatus) -> ())? = nil
 
   func locationManager(_ manager: CLLocationManager, didUpdateHeading newHeading: CLHeading) {
-    headingCallback?(newHeading.trueHeading)
+    // A negative headingAccuracy means the reported heading is invalid
+    // (e.g. no location fix yet or magnetometer needs calibration).
+    guard newHeading.headingAccuracy >= 0 else { return }
+    // trueHeading is negative when the true-north reference is unavailable;
+    // fall back to magneticHeading so the arrow still points somewhere sane.
+    let heading = newHeading.trueHeading >= 0 ? newHeading.trueHeading : newHeading.magneticHeading
+    headingCallback?(heading)
   }
 
   func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {

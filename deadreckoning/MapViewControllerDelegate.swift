@@ -9,7 +9,7 @@
 import Foundation
 import CoreLocation
 
-protocol MapViewControllerDelegate {
+protocol MapViewControllerDelegate: AnyObject {
     func update(location: CLLocation)
 }
 

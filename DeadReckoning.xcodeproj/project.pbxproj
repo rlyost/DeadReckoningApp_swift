@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		647284251EB38CE9002474A2 /* UserDefauts+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 647284241EB38CE9002474A2 /* UserDefauts+Extensions.swift */; };
+		647284251EB38CE9002474A2 /* UserDefaults+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 647284241EB38CE9002474A2 /* UserDefaults+Extensions.swift */; };
 		64BE1FD81EAC8E23009A00B6 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BE1FD71EAC8E23009A00B6 /* MapViewController.swift */; };
 		64E8BF6C1E9535A200B10108 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E8BF6B1E9535A200B10108 /* AppDelegate.swift */; };
 		64E8BF6E1E9535A200B10108 /* CompassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E8BF6D1E9535A200B10108 /* CompassViewController.swift */; };
@@ -23,7 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		647284241EB38CE9002474A2 /* UserDefauts+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserDefauts+Extensions.swift"; sourceTree = "<group>"; };
+		647284241EB38CE9002474A2 /* UserDefaults+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extensions.swift"; sourceTree = "<group>"; };
 		64BE1FD71EAC8E23009A00B6 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		64E8BF681E9535A200B10108 /* deadreckoning.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = deadreckoning.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		64E8BF6B1E9535A200B10108 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -75,7 +75,7 @@
 				9D9DFFF820A5353F00E436AD /* MainVC.swift */,
 				64E8BF6B1E9535A200B10108 /* AppDelegate.swift */,
 				64E8BF6D1E9535A200B10108 /* CompassViewController.swift */,
-				647284241EB38CE9002474A2 /* UserDefauts+Extensions.swift */,
+				647284241EB38CE9002474A2 /* UserDefaults+Extensions.swift */,
 				64E8BF7D1E953A6200B10108 /* LocationDelegate.swift */,
 				64E8BF7F1E953ACC00B10108 /* CLLocation+Extension.swift */,
 				9D9DFFF620A5333300E436AD /* Mainv2.storyboard */,
@@ -116,7 +116,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 2650;
+				LastUpgradeCheck = 2660;
 				ORGANIZATIONNAME = "Echelon Front";
 				TargetAttributes = {
 					64E8BF671E9535A200B10108 = {
@@ -167,7 +167,7 @@
 				9D1D3EFE20A60A6A00B6F8DE /* PaceItemLableDelegate.swift in Sources */,
 				64E8BF801E953ACC00B10108 /* CLLocation+Extension.swift in Sources */,
 				9D059C4920A54427002397DC /* MapViewControllerDelegate.swift in Sources */,
-				647284251EB38CE9002474A2 /* UserDefauts+Extensions.swift in Sources */,
+				647284251EB38CE9002474A2 /* UserDefaults+Extensions.swift in Sources */,
 				64E8BF7E1E953A6200B10108 /* LocationDelegate.swift in Sources */,
 				9D9DFFF920A5353F00E436AD /* MainVC.swift in Sources */,
 				9D1D3EFC20A60A1E00B6F8DE /* PaceVC.swift in Sources */,
@@ -194,6 +194,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -259,6 +260,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -318,7 +320,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				INFOPLIST_FILE = "$(SRCROOT)/deadreckoning/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Dead Reckoning";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.navigation";
@@ -327,7 +329,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0;
+				MARKETING_VERSION = 2.1;
 				PRODUCT_BUNDLE_IDENTIFIER = echelon.front.deadreckoning;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -343,7 +345,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				INFOPLIST_FILE = "$(SRCROOT)/deadreckoning/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Dead Reckoning";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.navigation";
@@ -352,7 +354,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0;
+				MARKETING_VERSION = 2.1;
 				PRODUCT_BUNDLE_IDENTIFIER = echelon.front.deadreckoning;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";

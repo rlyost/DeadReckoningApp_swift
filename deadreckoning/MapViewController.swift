@@ -10,7 +10,7 @@ import UIKit
 import MapKit
 
 class MapViewController: UIViewController {
-  var delegate: MapViewControllerDelegate!
+  weak var delegate: MapViewControllerDelegate?
   var myLocation: CLLocation?
   let regionRadius: CLLocationDistance = 1000
   @IBOutlet weak var mapView: MKMapView!
@@ -55,8 +55,6 @@ class MapViewController: UIViewController {
   @objc public func didTap(_ gestureRecognizer: UIGestureRecognizer) {
     let location = gestureRecognizer.location(in: mapView)
     let coordinate = mapView.convert(location, toCoordinateFrom: mapView)
-    print(coordinate.latitude, coordinate.longitude)
-    
     delegate?.update(location: CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude))
     self.dismiss(animated: true, completion: nil)
   }

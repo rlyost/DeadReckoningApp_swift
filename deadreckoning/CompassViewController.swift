@@ -34,15 +34,9 @@ class CompassViewController: UIViewController {
     //----
     
     let locationDelegate = LocationDelegate()
-    var latestLocation: CLLocation? = nil
-  var yourLocationBearing: CGFloat { return latestLocation?.bearingToLocationRadian(self.yourLocation) ?? 0 }
-  var yourLocation: CLLocation {
-    get { return UserDefaults.standard.currentLocation }
-    set { UserDefaults.standard.currentLocation = newValue }
-  }
 
-  private var locationTask: Task<Void, Never>?
-
+  // Navigation here is heading-driven (compass + fixed azimuth); GPS/liveUpdates
+  // is intentionally not used on this screen to save battery.
   let locationManager: CLLocationManager = {
     $0.desiredAccuracy = kCLLocationAccuracyBest
     return $0
@@ -71,7 +65,6 @@ class CompassViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    print("CompassVC")
     resetCourse()
     goalDistanceLabel.text = String(totalDistance) + " meters"
     totalSteps = (paceCount * totalDistance) / 100.0
@@ -106,45 +99,46 @@ class CompassViewController: UIViewController {
       switch status {
       case .authorizedWhenInUse, .authorizedAlways:
         self.locationManager.startUpdatingHeading()
-      case .notDetermined, .denied, .restricted:
-        break
+      case .denied, .restricted:
+        self.presentLocationDeniedAlert()
+      case .notDetermined:
+        self.locationManager.requestWhenInUseAuthorization()
       @unknown default:
         break
       }
     }
 
     locationManager.delegate = locationDelegate
-    startLocationUpdates()
 
-    print("PaceCount: \(self.paceCount)")
-    walkStopButtonPress(walkStopButton)
+    // VoiceOver: describe the guidance arrow.
+    imageView.isAccessibilityElement = true
+    imageView.accessibilityLabel = "Direction arrow. Rotate your body until it points straight up to follow your azimuth."
   }
 
   override func viewWillDisappear(_ animated: Bool) {
     super.viewWillDisappear(animated)
-    locationTask?.cancel()
-    locationTask = nil
     locationManager.stopUpdatingHeading()
-  }
-
-  private func startLocationUpdates() {
-    locationTask?.cancel()
-    locationTask = Task { @MainActor [weak self] in
-      do {
-        for try await update in CLLocationUpdate.liveUpdates() {
-          if Task.isCancelled { return }
-          guard let self else { return }
-          if let location = update.location {
-            self.latestLocation = location
-          }
-        }
-      } catch {
-        print("⚠️ Location stream error: \(error)")
-      }
+    if isWalking {
+      isWalking = false
+      pedometer.stopUpdates()
     }
   }
+
+  private func presentLocationDeniedAlert() {
+    let alert = UIAlertController(
+      title: "Compass Unavailable",
+      message: "Location access is off, so the heading arrow can't update. Enable it in Settings.",
+      preferredStyle: .alert)
+    alert.addAction(UIAlertAction(title: "Settings", style: .default) { _ in
+      if let url = URL(string: UIApplication.openSettingsURLString) {
+        UIApplication.shared.open(url)
+      }
+    })
+    alert.addAction(UIAlertAction(title: "OK", style: .cancel))
+    present(alert, animated: true)
+  }
     // ---------------------
-    
+
     func resetCourse() {
         enableWalkButton()
     }
@@ -162,8 +156,16 @@ class CompassViewController: UIViewController {
     }
     
     @IBAction func walkStopButtonPress(_ sender: UIButton) {
+        guard CMPedometer.isStepCountingAvailable() else {
+            let alert = UIAlertController(
+                title: "Step Counting Unavailable",
+                message: "This device can't count steps, so distance can't be tracked.",
+                preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default))
+            present(alert, animated: true)
+            return
+        }
         isWalking = !isWalking
-        print(isWalking)
         if (isWalking) {
             enableStopButton()
             pedometer.startUpdates(from: Date()) { data, error in
@@ -171,7 +173,6 @@ class CompassViewController: UIViewController {
                 let steps = Double(truncating: data.numberOfSteps)
                 Task { @MainActor [weak self] in
                     guard let self else { return }
-                    print("Update \(steps)")
                     self.numberOfSteps = steps
                     self.stepsTakenLabel.text = "\(Int(self.numberOfSteps)) steps"
 
@@ -185,7 +186,6 @@ class CompassViewController: UIViewController {
 
                     // Reached goal location?
                     if stepsLeft <= 0 && self.isWalking {
-                        print("Congrats!")
                         self.isWalking = false
                         self.pedometer.stopUpdates()
                         self.enableWalkButton()
