@@ -11,5 +11,6 @@ import CoreLocation
 
 protocol MapViewControllerDelegate: AnyObject {
     func update(location: CLLocation)
+    func resetDestination()
 }
 

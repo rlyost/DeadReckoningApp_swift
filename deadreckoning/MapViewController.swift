@@ -20,7 +20,7 @@ class MapViewController: UIViewController {
   }
   
   @IBAction func resetTap(_ sender: UIBarButtonItem) {
-    delegate?.update(location: CLLocation(latitude: 90, longitude: 0))
+    delegate?.resetDestination()
     self.dismiss(animated: true, completion: nil)
   }
   

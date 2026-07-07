@@ -12,9 +12,15 @@ import CoreLocation
 class MainVC: UIViewController {
 
     var latestLocation: CLLocation? = nil
-    var yourLocationBearing: CGFloat { return latestLocation?.bearingToLocationDegrees(destinationLocation: self.yourLocation) ?? 0 }
-    var distance: CGFloat { return CGFloat(latestLocation?.distance(from: self.yourLocation) ?? 0) }
-    var yourLocation: CLLocation {
+    var yourLocationBearing: CGFloat {
+        guard let latestLocation, let yourLocation else { return 0 }
+        return latestLocation.bearingToLocationDegrees(destinationLocation: yourLocation)
+    }
+    var distance: CGFloat {
+        guard let latestLocation, let yourLocation else { return 0 }
+        return CGFloat(latestLocation.distance(from: yourLocation))
+    }
+    var yourLocation: CLLocation? {
         get { return UserDefaults.standard.currentLocation }
         set { UserDefaults.standard.currentLocation = newValue }
     }
@@ -148,6 +154,14 @@ extension MainVC: MapViewControllerDelegate {
             directionField.text = String(Int(yourLocationBearing))
         }
         distanceField.text = String(Int(distance))
+    }
+
+    func resetDestination() {
+        yourLocation = nil
+        newDir = nil
+        map = false
+        directionField.text = ""
+        distanceField.text = ""
     }
 }
 
