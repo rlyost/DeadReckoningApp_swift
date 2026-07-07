@@ -12,9 +12,15 @@ import CoreLocation
 class MainVC: UIViewController {
 
     var latestLocation: CLLocation? = nil
-    var yourLocationBearing: CGFloat { return latestLocation?.bearingToLocationDegrees(destinationLocation: self.yourLocation) ?? 0 }
-    var distance: CGFloat { return CGFloat(latestLocation?.distance(from: self.yourLocation) ?? 0) }
-    var yourLocation: CLLocation {
+    var yourLocationBearing: CGFloat {
+        guard let latestLocation, let yourLocation else { return 0 }
+        return latestLocation.bearingToLocationDegrees(destinationLocation: yourLocation)
+    }
+    var distance: CGFloat {
+        guard let latestLocation, let yourLocation else { return 0 }
+        return CGFloat(latestLocation.distance(from: yourLocation))
+    }
+    var yourLocation: CLLocation? {
         get { return UserDefaults.standard.currentLocation }
         set { UserDefaults.standard.currentLocation = newValue }
     }
@@ -27,9 +33,6 @@ class MainVC: UIViewController {
     @IBOutlet weak var distanceField: UITextField!
     @IBOutlet weak var directionField: UITextField!
 
-    @IBAction func calcPace(_ sender: UIButton) {
-    }
-    
     @IBAction func useMap(_ sender: UIButton) {
         performSegue(withIdentifier: "toMapSegue", sender: sender)
     }
@@ -40,11 +43,12 @@ class MainVC: UIViewController {
         let azimuth = directionField.text ?? ""
 
         if let paceValue = Double(pc), paceValue > 0,
-           Double(dist) != nil, Double(azimuth) != nil {
+           let distValue = Double(dist), distValue >= 0,
+           let azimuthValue = Double(azimuth), (0...360).contains(azimuthValue) {
             UserDefaults.standard.savedPaceCount = paceValue
             performSegue(withIdentifier: "toCompassSegue", sender: self)
         } else {
-            let alertController = UIAlertController(title: "Error", message: "Pace count, distance, and direction must all be valid numbers.", preferredStyle: .alert)
+            let alertController = UIAlertController(title: "Error", message: "Enter a pace count greater than 0, a distance of 0 or more, and an azimuth between 0 and 360.", preferredStyle: .alert)
             let action1 = UIAlertAction(title: "Ok", style: .destructive)
             alertController.addAction(action1)
             self.present(alertController, animated: true, completion: nil)
@@ -53,7 +57,7 @@ class MainVC: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toPaceCount" {
-            let destination = segue.destination as! PaceVC
+            guard let destination = segue.destination as? PaceVC else { return }
             destination.delegate = self
         } else if segue.identifier == "toAboutSegue" {
             let destination = segue.destination
@@ -71,18 +75,16 @@ class MainVC: UIViewController {
                 )
             }
         } else if segue.identifier == "toMapSegue" {
-            let navigationController = segue.destination as! UINavigationController
-            let controller = navigationController.topViewController as! MapViewController
+            guard let navigationController = segue.destination as? UINavigationController,
+                  let controller = navigationController.topViewController as? MapViewController else { return }
             controller.delegate = self
             controller.myLocation = latestLocation
         } else if segue.identifier == "toCompassSegue" {
-            let compassVC = segue.destination as! CompassViewController
+            guard let compassVC = segue.destination as? CompassViewController else { return }
             compassVC.totalDistance = Double(distanceField.text ?? "") ?? 0
             compassVC.paceCount = Double(paceCountField.text ?? "") ?? 0
             compassVC.map = map
-            let newDir = CGFloat(Double(directionField.text ?? "") ?? 0)
-            print(newDir)
-            compassVC.newDir = newDir
+            compassVC.newDir = CGFloat(Double(directionField.text ?? "") ?? 0)
             compassVC.delegate = self
         }
     }
@@ -93,11 +95,14 @@ class MainVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("MainVC")
 
         if let savedPace = UserDefaults.standard.savedPaceCount {
             paceCountField.text = String(Int(savedPace))
         }
+
+        // The compass guides using true-north heading, so the typed azimuth
+        // is interpreted as a true azimuth (not magnetic). Make that explicit.
+        directionField.placeholder = "True azimuth (°)"
 
         startLocationUpdates()
         view.addGestureRecognizer(UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing(_:))))
@@ -109,7 +114,10 @@ class MainVC: UIViewController {
         locationTask = nil
     }
 
-    func viewDidAppear() {
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        // Reset the map flag each time we return to this screen so a prior
+        // map selection doesn't leak into the next manual entry.
         map = false
     }
 
@@ -136,22 +144,26 @@ extension MainVC: MapViewControllerDelegate {
     func update(location: CLLocation) {
         map = true
         yourLocation = location
-        print("Your Location \(yourLocation)")
-        print("Your Location Bearing \(yourLocationBearing)")
         self.newDir = yourLocationBearing
         if(Int(yourLocationBearing) < 0) {
             directionField.text = String(Int(yourLocationBearing)+360)
         } else {
             directionField.text = String(Int(yourLocationBearing))
         }
-        print("Distance: \(distance)")
         distanceField.text = String(Int(distance))
+    }
+
+    func resetDestination() {
+        yourLocation = nil
+        newDir = nil
+        map = false
+        directionField.text = ""
+        distanceField.text = ""
     }
 }
 
 extension MainVC: PaceItemLableDelegate {
     func itemPrint(by controller: PaceVC, with pace: String) {
-        print(pace)
         paceCountField.text = pace
         if let paceValue = Double(pace) {
             UserDefaults.standard.savedPaceCount = paceValue

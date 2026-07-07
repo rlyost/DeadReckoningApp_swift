@@ -19,33 +19,44 @@ class PaceVC: UIViewController {
     
     var pedometer = CMPedometer()
     
-    var numberOfSteps:Int! = nil
-    var distance:Double! = nil
-    var pace:Double! = nil
-    
+    var numberOfSteps: Int?
+    var distance: Double?
+    var pace: Double?
+
     var timer = Timer()
     var timerInterval = 1.0
     var timeElapsed:TimeInterval = 1.0
     
     @IBAction func startButtonPress(_ sender: UIButton) {
+        guard CMPedometer.isStepCountingAvailable() else {
+            let alert = UIAlertController(
+                title: "Step Counting Unavailable",
+                message: "This device can't count steps, so a pace count can't be measured.",
+                preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default))
+            present(alert, animated: true)
+            return
+        }
         pedometer = CMPedometer()
         startTimer()
-        pedometer.startUpdates(from:Date(), withHandler: {( data, error ) in
-            
-            if let pedData = data {
-                self.numberOfSteps = Int(truncating: pedData.numberOfSteps)
-
-                if let distance = pedData.distance {
-                    self.distance = Double(truncating: distance)
-                }
-                if let currentPace = pedData.currentPace {
-                    self.pace = Double(truncating: currentPace)
+        pedometer.startUpdates(from: Date()) { [weak self] data, error in
+            // Pedometer callbacks arrive off the main thread; hop back before
+            // mutating state that the UI timer reads.
+            Task { @MainActor [weak self] in
+                guard let self else { return }
+                if let pedData = data {
+                    self.numberOfSteps = Int(truncating: pedData.numberOfSteps)
+                    if let distance = pedData.distance {
+                        self.distance = Double(truncating: distance)
+                    }
+                    if let currentPace = pedData.currentPace {
+                        self.pace = Double(truncating: currentPace)
+                    }
+                } else {
+                    self.numberOfSteps = nil
                 }
             }
-            else {
-                self.numberOfSteps = nil
-            }
-        })
+        }
     }
     
     @IBAction func stopButtonPress(_ sender: UIButton) {
@@ -75,17 +86,6 @@ class PaceVC: UIViewController {
         else{
             distanceTravelled.text = "Distance: N/A"
         }
-    }
-    
-    func paceString(title:String,pace:Double) -> String{
-        var minPerMile = 0.0
-        let factor = 26.8224 //conversion factor
-        if pace != 0 {
-            minPerMile = factor / pace
-        }
-        let minutes = Int(minPerMile)
-        let seconds = Int(minPerMile * 60) % 60
-        return String(format: "%@ %02.2f m/s",title,pace,minutes,seconds)
     }
     
     func miles(meters:Double)-> Double{
@@ -118,9 +118,12 @@ class PaceVC: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        // Break the Timer's retain of self and stop the pedometer if the
+        // user leaves without pressing Stop.
+        timer.invalidate()
+        pedometer.stopUpdates()
     }
 }

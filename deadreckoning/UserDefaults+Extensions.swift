@@ -1,5 +1,5 @@
 //
-//  UserDefauts+Extensions.swift
+//  UserDefaults+Extensions.swift
 //  dead reckoning
 //
 //  Created by Yost Group LLC on 11/05/18.
@@ -10,10 +10,15 @@ import Foundation
 import CoreLocation
 
 extension UserDefaults {
-  var currentLocation: CLLocation {
-    get { return CLLocation(latitude: latitude ?? 90, longitude: longitude ?? 0) } // default value is North Pole (lat: 90, long: 0)
-    set { latitude = newValue.coordinate.latitude
-          longitude = newValue.coordinate.longitude }
+  var currentLocation: CLLocation? {
+    get {
+      guard let latitude, let longitude else { return nil } // no destination selected yet
+      return CLLocation(latitude: latitude, longitude: longitude)
+    }
+    set {
+      latitude = newValue?.coordinate.latitude
+      longitude = newValue?.coordinate.longitude
+    }
   }
 
   var savedPaceCount: Double? {

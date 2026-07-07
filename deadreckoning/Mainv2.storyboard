@@ -297,7 +297,7 @@ Coded by a Ranger-qualified Army Officer. Rangers Lead the Way.</mutableString>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Direction in degrees:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="al8-W3-c8R">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="True azimuth (degrees):" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="al8-W3-c8R">
                                 <rect key="frame" x="20" y="409.33333333333331" width="195" height="20.666666666666686"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -385,7 +385,6 @@ Coded by a Ranger-qualified Army Officer. Rangers Lead the Way.</mutableString>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="round" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="calcPace:" destination="5mn-iz-0Ce" eventType="touchUpInside" id="Xqu-rd-HDd"/>
                                     <segue destination="8V3-5V-QHT" kind="show" identifier="toPaceCount" id="9zN-Gj-foc"/>
                                 </connections>
                             </button>

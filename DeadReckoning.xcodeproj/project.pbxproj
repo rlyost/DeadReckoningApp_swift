@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		647284251EB38CE9002474A2 /* UserDefauts+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 647284241EB38CE9002474A2 /* UserDefauts+Extensions.swift */; };
+		647284251EB38CE9002474A2 /* UserDefaults+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 647284241EB38CE9002474A2 /* UserDefaults+Extensions.swift */; };
 		64BE1FD81EAC8E23009A00B6 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BE1FD71EAC8E23009A00B6 /* MapViewController.swift */; };
 		64E8BF6C1E9535A200B10108 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E8BF6B1E9535A200B10108 /* AppDelegate.swift */; };
 		64E8BF6E1E9535A200B10108 /* CompassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E8BF6D1E9535A200B10108 /* CompassViewController.swift */; };
@@ -20,10 +20,21 @@
 		9D1D3EFE20A60A6A00B6F8DE /* PaceItemLableDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1D3EFD20A60A6A00B6F8DE /* PaceItemLableDelegate.swift */; };
 		9D9DFFF720A5333300E436AD /* Mainv2.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D9DFFF620A5333300E436AD /* Mainv2.storyboard */; };
 		9D9DFFF920A5353F00E436AD /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9DFFF820A5353F00E436AD /* MainVC.swift */; };
+		9F20F94B2FFC7F1400CBADE8 /* NavigationMathTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F20F9482FFC7E1F00CBADE8 /* NavigationMathTests.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		9F20F9432FFC7C8F00CBADE8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 64E8BF601E9535A200B10108 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 64E8BF671E9535A200B10108;
+			remoteInfo = deadreckoning;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
-		647284241EB38CE9002474A2 /* UserDefauts+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserDefauts+Extensions.swift"; sourceTree = "<group>"; };
+		647284241EB38CE9002474A2 /* UserDefaults+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extensions.swift"; sourceTree = "<group>"; };
 		64BE1FD71EAC8E23009A00B6 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		64E8BF681E9535A200B10108 /* deadreckoning.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = deadreckoning.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		64E8BF6B1E9535A200B10108 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -38,10 +49,19 @@
 		9D1D3EFD20A60A6A00B6F8DE /* PaceItemLableDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaceItemLableDelegate.swift; sourceTree = "<group>"; };
 		9D9DFFF620A5333300E436AD /* Mainv2.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Mainv2.storyboard; sourceTree = "<group>"; };
 		9D9DFFF820A5353F00E436AD /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
+		9F20F93F2FFC7C8F00CBADE8 /* Dead ReckoningTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Dead ReckoningTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9F20F9482FFC7E1F00CBADE8 /* NavigationMathTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationMathTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		64E8BF651E9535A200B10108 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9F20F93C2FFC7C8F00CBADE8 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -55,6 +75,7 @@
 			isa = PBXGroup;
 			children = (
 				64E8BF6A1E9535A200B10108 /* deadreckoning */,
+				9F20F9492FFC7E1F00CBADE8 /* DeadReckoningTests */,
 				64E8BF691E9535A200B10108 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -63,6 +84,7 @@
 			isa = PBXGroup;
 			children = (
 				64E8BF681E9535A200B10108 /* deadreckoning.app */,
+				9F20F93F2FFC7C8F00CBADE8 /* Dead ReckoningTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -75,7 +97,7 @@
 				9D9DFFF820A5353F00E436AD /* MainVC.swift */,
 				64E8BF6B1E9535A200B10108 /* AppDelegate.swift */,
 				64E8BF6D1E9535A200B10108 /* CompassViewController.swift */,
-				647284241EB38CE9002474A2 /* UserDefauts+Extensions.swift */,
+				647284241EB38CE9002474A2 /* UserDefaults+Extensions.swift */,
 				64E8BF7D1E953A6200B10108 /* LocationDelegate.swift */,
 				64E8BF7F1E953ACC00B10108 /* CLLocation+Extension.swift */,
 				9D9DFFF620A5333300E436AD /* Mainv2.storyboard */,
@@ -86,6 +108,14 @@
 				64E8BF771E9535A200B10108 /* Info.plist */,
 			);
 			path = deadreckoning;
+			sourceTree = "<group>";
+		};
+		9F20F9492FFC7E1F00CBADE8 /* DeadReckoningTests */ = {
+			isa = PBXGroup;
+			children = (
+				9F20F9482FFC7E1F00CBADE8 /* NavigationMathTests.swift */,
+			);
+			path = DeadReckoningTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -108,6 +138,26 @@
 			productReference = 64E8BF681E9535A200B10108 /* deadreckoning.app */;
 			productType = "com.apple.product-type.application";
 		};
+		9F20F93E2FFC7C8F00CBADE8 /* Dead ReckoningTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9F20F9452FFC7C8F00CBADE8 /* Build configuration list for PBXNativeTarget "Dead ReckoningTests" */;
+			buildPhases = (
+				9F20F93B2FFC7C8F00CBADE8 /* Sources */,
+				9F20F93C2FFC7C8F00CBADE8 /* Frameworks */,
+				9F20F93D2FFC7C8F00CBADE8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9F20F9442FFC7C8F00CBADE8 /* PBXTargetDependency */,
+			);
+			name = "Dead ReckoningTests";
+			packageProductDependencies = (
+			);
+			productName = "Dead ReckoningTests";
+			productReference = 9F20F93F2FFC7C8F00CBADE8 /* Dead ReckoningTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -115,8 +165,8 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
-				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 2650;
+				LastSwiftUpdateCheck = 2660;
+				LastUpgradeCheck = 2660;
 				ORGANIZATIONNAME = "Echelon Front";
 				TargetAttributes = {
 					64E8BF671E9535A200B10108 = {
@@ -124,6 +174,10 @@
 						DevelopmentTeam = 983FH98M9Y;
 						LastSwiftMigration = 0930;
 						ProvisioningStyle = Automatic;
+					};
+					9F20F93E2FFC7C8F00CBADE8 = {
+						CreatedOnToolsVersion = 26.6;
+						TestTargetID = 64E8BF671E9535A200B10108;
 					};
 				};
 			};
@@ -141,6 +195,7 @@
 			projectRoot = "";
 			targets = (
 				64E8BF671E9535A200B10108 /* deadreckoning */,
+				9F20F93E2FFC7C8F00CBADE8 /* Dead ReckoningTests */,
 			);
 		};
 /* End PBXProject section */
@@ -156,6 +211,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		9F20F93D2FFC7C8F00CBADE8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -167,7 +229,7 @@
 				9D1D3EFE20A60A6A00B6F8DE /* PaceItemLableDelegate.swift in Sources */,
 				64E8BF801E953ACC00B10108 /* CLLocation+Extension.swift in Sources */,
 				9D059C4920A54427002397DC /* MapViewControllerDelegate.swift in Sources */,
-				647284251EB38CE9002474A2 /* UserDefauts+Extensions.swift in Sources */,
+				647284251EB38CE9002474A2 /* UserDefaults+Extensions.swift in Sources */,
 				64E8BF7E1E953A6200B10108 /* LocationDelegate.swift in Sources */,
 				9D9DFFF920A5353F00E436AD /* MainVC.swift in Sources */,
 				9D1D3EFC20A60A1E00B6F8DE /* PaceVC.swift in Sources */,
@@ -176,7 +238,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		9F20F93B2FFC7C8F00CBADE8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9F20F94B2FFC7F1400CBADE8 /* NavigationMathTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9F20F9442FFC7C8F00CBADE8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 64E8BF671E9535A200B10108 /* deadreckoning */;
+			targetProxy = 9F20F9432FFC7C8F00CBADE8 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		64E8BF741E9535A200B10108 /* LaunchScreen.storyboard */ = {
@@ -194,6 +272,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -259,6 +338,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -318,7 +398,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				INFOPLIST_FILE = "$(SRCROOT)/deadreckoning/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Dead Reckoning";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.navigation";
@@ -327,7 +407,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0;
+				MARKETING_VERSION = 2.1;
 				PRODUCT_BUNDLE_IDENTIFIER = echelon.front.deadreckoning;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -343,7 +423,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				INFOPLIST_FILE = "$(SRCROOT)/deadreckoning/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Dead Reckoning";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.navigation";
@@ -352,7 +432,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0;
+				MARKETING_VERSION = 2.1;
 				PRODUCT_BUNDLE_IDENTIFIER = echelon.front.deadreckoning;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -361,6 +441,70 @@
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		9F20F9462FFC7C8F00CBADE8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 983FH98M9Y;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "YostGroup.Dead-ReckoningTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/deadreckoning.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/deadreckoning";
+			};
+			name = Debug;
+		};
+		9F20F9472FFC7C8F00CBADE8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 983FH98M9Y;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "YostGroup.Dead-ReckoningTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/deadreckoning.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/deadreckoning";
 			};
 			name = Release;
 		};
@@ -381,6 +525,15 @@
 			buildConfigurations = (
 				64E8BF7B1E9535A200B10108 /* Debug */,
 				64E8BF7C1E9535A200B10108 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9F20F9452FFC7C8F00CBADE8 /* Build configuration list for PBXNativeTarget "Dead ReckoningTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9F20F9462FFC7C8F00CBADE8 /* Debug */,
+				9F20F9472FFC7C8F00CBADE8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
