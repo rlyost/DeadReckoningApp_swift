@@ -33,9 +33,6 @@ class MainVC: UIViewController {
     @IBOutlet weak var distanceField: UITextField!
     @IBOutlet weak var directionField: UITextField!
 
-    @IBAction func calcPace(_ sender: UIButton) {
-    }
-    
     @IBAction func useMap(_ sender: UIButton) {
         performSegue(withIdentifier: "toMapSegue", sender: sender)
     }
