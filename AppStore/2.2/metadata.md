@@ -36,10 +36,10 @@ navigation,orienteering,bearing,ranger,army,military,infantry,hiking,topo,map,st
 
 ## Promotional text
 
-155 / 170 characters · can be changed any time without a new build
+140 / 170 characters · can be changed any time without a new build
 
 ```text
-New in 2.2: a classic compass needle with a red north tip and a topographic-map look on every screen, in Light and Dark Mode. Set your azimuth and walk it.
+New in 2.2: a red-and-white compass needle and a topographic-map look on every screen, in Light and Dark Mode. Set your azimuth and walk it.
 ```
 
 ## Description
@@ -64,7 +64,7 @@ KNOW YOUR PACE COUNT
 
 MADE FOR THE FIELD
 • Topographic-map styling on every screen, in Light and Dark Mode.
-• A classic red-and-white compass needle, with an "N" on the red tip.
+• A slim red-and-white compass needle that stays sharp on any screen.
 • VoiceOver describes the needle and how to follow it.
 
 A NOTE ON TRUE NORTH
@@ -78,12 +78,12 @@ Use Dead Reckoning as a training aid alongside a map and compass. It is not affi
 
 ## What's New in Version 2.2
 
-298 / 4000 characters
+268 / 4000 characters
 
 ```text
 Dead Reckoning has a new look.
 
-• New compass needle: a classic red-and-white needle with an "N" on the red tip replaces the hand-drawn arrow. It stays sharp on every screen size.
+• New compass needle: a slim red-and-white needle replaces the hand-drawn arrow. It stays sharp on every screen size.
 • New topographic-map background on every screen, with matching Light and Dark Mode versions.
 • New app icon to match.
 ```
