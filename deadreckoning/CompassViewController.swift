@@ -169,7 +169,7 @@ class CompassViewController: UIViewController {
         isWalking = !isWalking
         if (isWalking) {
             enableStopButton()
-            pedometer.startUpdates(from: Date()) { data, error in
+            pedometer.startUpdates(from: Date()) { [weak self] data, error in
                 guard let data else { return }
                 let steps = Double(truncating: data.numberOfSteps)
                 Task { @MainActor [weak self] in

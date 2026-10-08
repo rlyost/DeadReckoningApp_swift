@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		647284251EB38CE9002474A2 /* UserDefaults+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 647284241EB38CE9002474A2 /* UserDefaults+Extensions.swift */; };
-		C0B0A0F21EB38CE9002474A2 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B0A0F11EB38CE9002474A2 /* UIColor+Extensions.swift */; };
 		64BE1FD81EAC8E23009A00B6 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BE1FD71EAC8E23009A00B6 /* MapViewController.swift */; };
 		64E8BF6C1E9535A200B10108 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E8BF6B1E9535A200B10108 /* AppDelegate.swift */; };
 		64E8BF6E1E9535A200B10108 /* CompassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E8BF6D1E9535A200B10108 /* CompassViewController.swift */; };
@@ -22,6 +21,8 @@
 		9D9DFFF720A5333300E436AD /* Mainv2.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D9DFFF620A5333300E436AD /* Mainv2.storyboard */; };
 		9D9DFFF920A5353F00E436AD /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9DFFF820A5353F00E436AD /* MainVC.swift */; };
 		9F20F94B2FFC7F1400CBADE8 /* NavigationMathTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F20F9482FFC7E1F00CBADE8 /* NavigationMathTests.swift */; };
+		9FFED6F9307755DF006AB1BA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FFED6F8307755DF006AB1BA /* SceneDelegate.swift */; };
+		C0B0A0F21EB38CE9002474A2 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B0A0F11EB38CE9002474A2 /* UIColor+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +37,6 @@
 
 /* Begin PBXFileReference section */
 		647284241EB38CE9002474A2 /* UserDefaults+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extensions.swift"; sourceTree = "<group>"; };
-		C0B0A0F11EB38CE9002474A2 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		64BE1FD71EAC8E23009A00B6 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		64E8BF681E9535A200B10108 /* deadreckoning.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = deadreckoning.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		64E8BF6B1E9535A200B10108 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -53,6 +53,8 @@
 		9D9DFFF820A5353F00E436AD /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 		9F20F93F2FFC7C8F00CBADE8 /* Dead ReckoningTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Dead ReckoningTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F20F9482FFC7E1F00CBADE8 /* NavigationMathTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationMathTests.swift; sourceTree = "<group>"; };
+		9FFED6F8307755DF006AB1BA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		C0B0A0F11EB38CE9002474A2 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 				64E8BF721E9535A200B10108 /* Assets.xcassets */,
 				64E8BF741E9535A200B10108 /* LaunchScreen.storyboard */,
 				64E8BF771E9535A200B10108 /* Info.plist */,
+				9FFED6F8307755DF006AB1BA /* SceneDelegate.swift */,
 			);
 			path = deadreckoning;
 			sourceTree = "<group>";
@@ -239,6 +242,7 @@
 				9D1D3EFC20A60A1E00B6F8DE /* PaceVC.swift in Sources */,
 				64BE1FD81EAC8E23009A00B6 /* MapViewController.swift in Sources */,
 				64E8BF6C1E9535A200B10108 /* AppDelegate.swift in Sources */,
+				9FFED6F9307755DF006AB1BA /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
