@@ -444,7 +444,6 @@ Dead reckoning is moving a set distance along a set line. Generally, it involves
                             <constraint firstItem="MSq-oq-2Lm" firstAttribute="trailing" secondItem="xJX-8s-BpX" secondAttribute="trailing" id="KIY-OP-O6X"/>
                             <constraint firstItem="MSq-oq-2Lm" firstAttribute="leading" secondItem="al8-W3-c8R" secondAttribute="leading" id="P9B-8p-lnb"/>
                             <constraint firstItem="vX5-8t-m08" firstAttribute="top" secondItem="gCa-Uq-pUr" secondAttribute="bottom" constant="8" symbolic="YES" id="SCE-gV-6Ju"/>
-                            <constraint firstItem="MSq-oq-2Lm" firstAttribute="top" secondItem="soy-gc-cCl" secondAttribute="top" constant="350" id="UXE-Mj-laf"/>
                             <constraint firstItem="t0R-fj-JkR" firstAttribute="trailing" secondItem="soy-gc-cCl" secondAttribute="trailingMargin" id="VTf-bi-xKR"/>
                             <constraint firstItem="al8-W3-c8R" firstAttribute="top" secondItem="MSq-oq-2Lm" secondAttribute="bottom" constant="20" id="XlH-sr-T4d"/>
                             <constraint firstAttribute="trailing" secondItem="al8-W3-c8R" secondAttribute="trailing" constant="199" id="bgh-Es-VxY"/>
