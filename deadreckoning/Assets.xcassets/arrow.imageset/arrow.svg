@@ -8,10 +8,11 @@
   </defs>
   <polygon points="256,24 206,256 256,256" fill="#E2453A"/>
   <polygon points="256,24 306,256 256,256" fill="#A3271F"/>
-  <polygon points="206,256 256,488 256,256" fill="#F4F2EB"/>
-  <polygon points="306,256 256,488 256,256" fill="#B8BCB3"/>
-  <polygon points="256,24 306,256 256,488 206,256" fill="none" stroke="#1E241F" stroke-width="5" stroke-linejoin="round"/>
-  <path d="M243,196 L243,150 L269,196 L269,150" fill="none" stroke="#FFFFFF" stroke-width="7" stroke-linecap="square" stroke-linejoin="miter"/>
+  <polygon points="238,256 256,256 256,488 249,470" fill="#F4F2EB"/>
+  <polygon points="274,256 256,256 256,488 263,470" fill="#B8BCB3"/>
+  <polygon points="256,24 306,256 274,256 263,470 256,488 249,470 238,256 206,256" fill="none" stroke="#1E241F" stroke-width="5" stroke-linejoin="round"/>
+  <polygon points="256,62 276,200 256,218 236,200" fill="#F4F2EB" stroke="#1E241F" stroke-width="3" stroke-linejoin="round"/>
+  <rect x="250" y="388" width="12" height="44" rx="6" fill="#E2453A" stroke="#1E241F" stroke-width="2"/>
   <circle cx="256" cy="256" r="28" fill="url(#brass)" stroke="#2A2416" stroke-width="4"/>
   <circle cx="256" cy="256" r="8" fill="#2A2416"/>
 </svg>
