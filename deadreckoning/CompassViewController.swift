@@ -65,6 +65,7 @@ class CompassViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    view.backgroundColor = .topoBackground
     resetCourse()
     goalDistanceLabel.text = String(totalDistance) + " meters"
     totalSteps = (paceCount * totalDistance) / 100.0

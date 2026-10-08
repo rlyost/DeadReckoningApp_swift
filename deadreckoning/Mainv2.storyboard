@@ -63,7 +63,7 @@ Coded by a Ranger-qualified Army Officer. Rangers Lead the Way.</mutableString>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1000" id="FcY-CY-8P1"/>
                                             <constraint firstAttribute="width" constant="347" id="LnF-iU-TSG"/>

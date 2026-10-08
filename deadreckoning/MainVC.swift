@@ -61,7 +61,7 @@ class MainVC: UIViewController {
             destination.delegate = self
         } else if segue.identifier == "toAboutSegue" {
             let destination = segue.destination
-            _ = destination.view
+            destination.view.backgroundColor = .topoBackground
             if let label = destination.view.viewWithTag(42) as? UILabel,
                let currentText = label.text {
                 let info = Bundle.main.infoDictionary
@@ -95,6 +95,7 @@ class MainVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .topoBackground
 
         if let savedPace = UserDefaults.standard.savedPaceCount {
             paceCountField.text = String(Int(savedPace))
